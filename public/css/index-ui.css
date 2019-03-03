@@ -1,0 +1,114 @@
+@font-face {
+    font-family: solaiman;
+    src: url(../fonts/solaiman.ttf);
+}
+
+*{
+    margin:0;
+    padding:0;
+    font-family:solaiman;
+}
+
+
+table{width:100%;}
+input[type="text"] {
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-family:verdana;
+    font-size: 1.4em;
+}
+
+input[type="text"]{border-radius:4px;box-shadow:none;border:solid 1px rgba(50,121,26,0.4);}
+
+input[type="text"]:focus, .dob:focus {
+    background-color: rgb(240,255,217);
+    box-shadow:inset 2px 2px 2px 1px rgb(184,227,122);
+}
+
+input[type="text"]:hover, .dob:hover{
+    box-shadow:inset 2px 2px 2px 1px rgb(186,231,255);
+}
+.btna{ background:#CCFF99; padding:10px; border:solid 1px #2169a5; color:#282828;}
+.btnsub{ background:#ffffff; padding:10px; border:solid 1px #f5f5f5; color:#4b89be; margin:10px; font-size:1.4em; float:right}
+
+.headd{ width:98.3%;
+    background: rgb(54,159,0);
+    background: -webkit-linear-gradient(left,rgba(83,157,2,0),rgba(83,157,2,1));
+    background: -o-linear-gradient(right,rgba(83,157,2,0),rgba(83,157,2,1));
+    background: -moz-linear-gradient(right,rgba(83,157,2,0),rgba(83,157,2,1));
+    background: linear-gradient(to left, rgba(83,157,2,0), rgba(83,157,2,1));
+    padding:10px; margin-right:10px; font-size:1.4em; color: #fff; text-shadow:2px 2px 1px rgb(31,62,0);
+    font-family: verdana; }
+
+.CSSTableGenerator {
+    width:100%;	box-shadow: 10px 10px 5px #888888;font-family: verdana;
+
+}
+.CSSTableGenerator table{
+    width:100%;
+    height:100%;
+    background:url(../images/back2.jpg) no-repeat;
+    background-size:cover;
+}
+.CSSTableGenerator td{
+    vertical-align:middle;
+    border:1px solid #386F11;
+    border-width:0px 1px 1px 0px;
+    text-align:left;
+    padding:7px;
+    font-size:14px;
+    font-family: verdana;
+    font-weight:normal;
+    color:#000000;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+.CSSTableGenerator tr:first-child td{
+    text-align:left;
+    border-width:0px 0px 1px 1px;
+    font-size:14px;
+    font-weight:bold;
+    color: #333;
+}
+
+.myself{
+    background: rgb(54,159,0);
+    background: -webkit-linear-gradient(left,rgba(83,157,2,0),rgba(83,157,2,1));
+    background: -o-linear-gradient(right,rgba(83,157,2,0),rgba(83,157,2,1));
+    background: -moz-linear-gradient(right,rgba(83,157,2,0),rgba(83,157,2,1));
+    background: linear-gradient(to left, rgba(83,157,2,0), rgba(83,157,2,1));
+    font-size:1.2em;  text-shadow:2px 2px 1px rgb(31,62,0);
+}
+
+#code{font-size:1.2em;margin-left:14px;display:inline;}
+
+#gapply{
+    cursor:pointer;
+}
+body{padding:3px;background:url(../images/back2.jpg) no-repeat;}.menubar{margin:0;width:100%;height:auto;background:url(../images/back.jpg) no-repeat;border:none;background-size:cover;}.mymenu{width:98%;background:url(../images/back.jpg) no-repeat; border:none;background-size:cover;}
+.menuleft{width:70%;border:none;} .menuright{width:32%;border:none;} .fc{border:none;border:none;}	.plink{color:rgb(237,255,200);text-decoration:none;padding:18px;font-weight:bold;border:none;}.setright{text-align:right;border:none;}
+
+.plink:hover{text-shadow: -1px -1px 0 rgba(0,0,0,0.3); border-radius:5px;background-color:rgb(77,149,72);border-bottom:solid 1px white;}.sear{width:100%;} .form-group{width:70%;height:400px; padding:22px; margin:0 auto;border-radius:16px;border:solid 2px rgb(106,142,34);} .oye{text-align:right;}.inpu{width:280px;height:35px;background-color:white;text-align:right;}
+.inpu:focus{background-color: rgb(223,253,243);box-shadow:inset 2px 2px 2px 1px rgb(184,227,122);}				.page{padding:8px;color:rgb(216,246,254);font-size:2em;font-weight:bold;height:auto;text-shadow: -1px -1px 5px rgba(0,0,0,0.3);} .bck{background-color:white;} .gender{margin-left:40px;} .quota{margin-left:40px;}
+#comtext{margin-left:40px;}
+#upz, #upz2, #sday, #sday2{font-size:1.2em;}
+
+.myself{color: #fff;}
+
+@media (max-width:940px){.menuleft{width:50%;}.menuright{width:50%;}}
+@media (max-width:700px){.menuleft{width:50%;}.menuright{width:50%;} .page{font-size:12px;}}
+@media (max-width:300px){.page{font-size:1.2em;}}
+
+#footer{
+    background-color:#1e392a;
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    text-align:center;
+    color:#dcd0c0;
+}
