@@ -8,6 +8,8 @@ class Applicant extends Model
 {
     protected $table = 'applicant';
     protected $guarded = ['id'];
+    protected $fillable = ['applicantname', 'applicantnameBang', 'gender', 'quota', 'dob', 'appMobile', 'email', 'nid', 'bid',
+        'community', 'personImageID', 'signImageID', 'quotaImageId', 'quota_relation', 'point', 'financial_year'];
 
     public function address(){
         return $this->hasOne(Address::class);
