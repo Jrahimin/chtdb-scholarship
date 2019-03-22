@@ -63,7 +63,7 @@ session_start();
                                         <strong>
                                             *পাসপোর্ট সাইজের রঙিন ছবি  (ছবির আকার ৩০০x৩০০ এবং  100 KB এর চেয়ে ছোট হতে হবে)
                                         </strong></td>
-                                    <td width="31%"><input name="app_pic" required2="required2" type="file" id="app_pic" class="btna" onchange="readURL(this);" /></td>
+                                    <td width="31%"><input name="app_pic" required="required" type="file" id="app_pic" class="btna" onchange="readURL(this);" /></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -72,33 +72,33 @@ session_start();
                                 <tbody>
                                 <tr>
                                     <td valign="top" width="31%"><strong>*আবেদনকারীর নাম :</strong></td>
-                                    <td width="31%"><input required2="required2" name="app_bang" type="text" id="app_bang"  /></td>
+                                    <td width="31%"><input required="required" name="app_bang" type="text" id="app_bang"  /></td>
                                     <td width="13%" style="border:none;"></td>
                                     <td width="25%" style="border:none;"></td>
                                 </tr>
 
                                 <tr>
                                     <td valign="top" width="31%"><strong>*আবেদনকারীর নাম (ইংরেজিতে):</strong></td>
-                                    <td width="31%"><input required2="required2" onKeyUp="up(this.value)" name="app_eng" type="text" id="app_eng"  /></td>
+                                    <td width="31%"><input required="required" onKeyUp="up(this.value)" name="app_eng" type="text" id="app_eng"  /></td>
                                     <td width="13%" style="border:none;"></td>
                                     <td width="25%" style="border:none;"></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>*জন্ম  তারিখ:</strong></td>
-                                    <td><input name="dob" required2="required2" class="dob" type="text" id="dob"/>
+                                    <td><input name="dob" required="required" class="dob" type="text" id="dob"/>
                                     </td>
                                     <td style="border:none;"></td>
                                     <td style="border:none;"></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>* মোবাইল নম্বর :</strong></td>
-                                    <td><input required2="required2" type="text" name="app_mobile" id="app_mobile" /></td>
+                                    <td><input required="required" type="text" name="app_mobile" id="app_mobile" /></td>
                                     <td style="border:none;"></td>
                                     <td style="border:none;"></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>*ই-মেইল :</strong></td>
-                                    <td><input name="app_email" type="email" id="app_email" placeholder="email@example.com" required2="required2" style="font-size:1.5em;width:250px;"/></td>
+                                    <td><input name="app_email" type="email" id="app_email" placeholder="email@example.com" required="required" style="font-size:1.5em;width:250px;"/></td>
                                     <td style="border:none;"></td>
                                     <td style="border:none;"></td>
                                 </tr>
@@ -111,9 +111,9 @@ session_start();
 
                                 <tr>
                                     <td valign="top"><strong>*জন্ম নিবন্ধন নম্বর :</strong></td>
-                                    <td><input name="app_bid" type="text" id="app_bid" required2="required2"/></td>
+                                    <td><input name="app_bid" type="text" id="app_bid" required="required"/></td>
                                     <td><strong>*লিঙ্গ :</strong></td>
-                                    <td><input type="radio" class="gender" name="gender" value="পুরুষ" required2="required2"> &nbsp;&nbsp;পুরুষ<br/>
+                                    <td><input type="radio" class="gender" name="gender" value="পুরুষ" required="required"> &nbsp;&nbsp;পুরুষ<br/>
                                         <input type="radio" class="gender" name="gender" value="মহিলা" style="margin-top:5px;"> &nbsp;&nbsp;মহিলা<br/>
                                         <input type="radio" class="gender" name="gender" value="তৃতীয় লিঙ্গ" style="margin-top:5px;"> &nbsp;&nbsp;তৃতীয় লিঙ্গ
                                     </td>
@@ -166,7 +166,7 @@ session_start();
                                     <td valign="top"><strong>*সম্প্রদায় :</strong></td>
                                     <td style="border-right:none;">
                                         <center>
-                                            <select class="opt commut" onChange="comcheck(this.value)" required2="required2" id="comm" style="width:100px;font-size:1.1em;padding:5px;text-align:center;">
+                                            <select class="opt commut" onChange="comcheck(this.value)" required="required" id="comm" style="width:100px;font-size:1.1em;padding:5px;text-align:center;">
 
 
 
@@ -179,7 +179,7 @@ session_start();
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>*পিতার নাম   :</strong></td>
-                                    <td valign="top"><input name="fathers_name" required2="required2" type="text" id="fathers_name" /></td>
+                                    <td valign="top"><input name="fathers_name" required="required" type="text" id="fathers_name" /></td>
                                     <td valign="top"><strong>পেশা  :</strong></td>
                                     <td valign="top"><input name="f_occu" type="text" id="f_occu" /></td>
                                 </tr>
@@ -192,21 +192,21 @@ session_start();
 
                                 <tr>
                                     <td valign="top"><strong>*মাতার নাম  :</strong></td>
-                                    <td valign="top"><input name="mothers_name" required2="required2" type="text" id="mothers_name" /></td>
+                                    <td valign="top"><input name="mothers_name" required="required" type="text" id="mothers_name" /></td>
                                     <td valign="top" style="border-top:solid 1px #386F11;"><strong>পেশা  :</strong></td>
                                     <td valign="top" style="border-top:solid 1px #386F11;"><input name="m_occu" type="text" id="m_occu"/></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>*অভিভাবকের নাম  :</strong></td>
-                                    <td valign="top"><input name="g_name" required2="required2" type="text" id="g_name" /></td>
+                                    <td valign="top"><input name="g_name" required="required" type="text" id="g_name" /></td>
                                     <td valign="top"><strong>*আবেদনকারীর সাথে সম্পর্ক  :</strong></td>
-                                    <td valign="top"><input name="g_relation" required2="required2" type="text" id="g_relation" /></td>
+                                    <td valign="top"><input name="g_relation" required="required" type="text" id="g_relation" /></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>*পিতা/অভিভাবকের বাৎসরিক আয় :</strong></td>
-                                    <td valign="top"><input name="g_y_income" required2="required2" type="text" id="g_y_income" /></td>
+                                    <td valign="top"><input name="g_y_income" required="required" type="text" id="g_y_income" /></td>
                                     <td valign="top"><strong>*মোবাইল নম্বর:</strong></td>
-                                    <td valign="top"><input required2="required2" type="text" name="g_mobile" id="g_mobile" /></td>
+                                    <td valign="top"><input required="required" type="text" name="g_mobile" id="g_mobile" /></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -215,15 +215,15 @@ session_start();
                                 <tbody>
                                 <tr>
                                     <td width="31%" valign="top"><strong>ব্যাংক  হিসাব নম্বর :</strong></td>
-                                    <td width="27%"><input name="b_ac" type="text" id="b_ac" required2="required2" /></td>
+                                    <td width="27%"><input name="b_ac" type="text" id="b_ac" required="required" /></td>
                                     <td width="17%" valign="top"><strong>হিসাবধারীর নাম :</strong></td>
-                                    <td width="25%"><input name="b_ac_name" type="text" id="b_ac_name" required2="required2" /></td>
+                                    <td width="25%"><input name="b_ac_name" type="text" id="b_ac_name" required="required" /></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>ব্যাংকের নাম :</strong></td>
-                                    <td><input name="b_dist" type="text" id="b_dist" required2="required2" /></td>
+                                    <td><input name="b_dist" type="text" id="b_dist" required="required" /></td>
                                     <td valign="top"><strong>শাখা :</strong></td>
-                                    <td><input name="b_branch" type="text" id="b_branch" required2="required2" /></td>
+                                    <td><input name="b_branch" type="text" id="b_branch" required="required" /></td>
                                 </tr>
                                 <tr>
                                     <td><strong>*হিসাবধারীর সাথে আবেদনকারীর সম্পর্ক  :</strong></td>
@@ -245,23 +245,23 @@ session_start();
                                 </tr>
                                 <tr>
                                     <td valign="top" height="24"><strong>বাড়ি নং/রোড নং.</strong></td>
-                                    <td><input name="pa_house" type="text" id="pa_house"  required2="required2"/></td>
-                                    <td><input name="pr_house" type="text" id="pr_house" onKeyUp="house()" required2="required2" /></td>
+                                    <td><input name="pa_house" type="text" id="pa_house"  required="required"/></td>
+                                    <td><input name="pr_house" type="text" id="pr_house" onKeyUp="house()" required="required" /></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>গ্রাম/ওয়ার্ড</strong></td>
-                                    <td><input name="pa_vill" type="text" id="pa_vill" required2="required2" /></td>
-                                    <td><input name="pr_vill" type="text" id="pr_vill" onKeyUp="vill()" required2="required2" /></td>
+                                    <td><input name="pa_vill" type="text" id="pa_vill" required="required" /></td>
+                                    <td><input name="pr_vill" type="text" id="pr_vill" onKeyUp="vill()" required="required" /></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>ডাকঘর</strong></td>
-                                    <td><input name="pa_post" type="text" id="pa_post" required2="required2" /></td>
-                                    <td><input name="pr_post" type="text" id="pr_post" onKeyUp="pst()" required2="required2"/></td>
+                                    <td><input name="pa_post" type="text" id="pa_post" required="required" /></td>
+                                    <td><input name="pr_post" type="text" id="pr_post" onKeyUp="pst()" required="required"/></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>জেলা</strong></td>
                                     <td>
-                                        <select class="opt pa_dist" name="pa_dist" onChange="changekar(this.value)" id="sday"  required2="required2">
+                                        <select class="opt pa_dist" name="pa_dist" onChange="changekar(this.value)" id="sday"  required="required">
 
                                         </select>
                                     </td>
@@ -308,7 +308,7 @@ session_start();
 </span>
 
                                     <td>
-                                        <input name="pr_dist" type="text" id="pr_dist" required2="required2" />
+                                        <input name="pr_dist" type="text" id="pr_dist" required="required" />
                                     </td>
                                 </tr>
 
@@ -319,7 +319,7 @@ session_start();
 
 <span id="upoz">
 
-<select class="opt pa_subdist" name="pa_subdist" id="upz"  required2="required2">
+<select class="opt pa_subdist" name="pa_subdist" id="upz"  required="required">
 	<option value="">-নির্বাচন করুন-</option>
 	<option value="রাঙামাটি সদর">রাঙামাটি সদর</option>
 	<option value="বরকল">বরকল</option>
@@ -339,7 +339,7 @@ session_start();
 
                                     <td>
 
-                                        <input name="pr_subdist" type="text" id="pr_subdist" required2="required2" />
+                                        <input name="pr_subdist" type="text" id="pr_subdist" required="required" />
 
                                     </td>
 
@@ -369,8 +369,8 @@ session_start();
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>*এস.এস.সি/সমমান :</strong></td>
-                                    <td><input name="ssc_group" type="text" id="ssc_group" required2="required2"/></td>
-                                    <td><input name="ssc_roll" type="text" id="ssc_roll" required2="required2"/></td>
+                                    <td><input name="ssc_group" type="text" id="ssc_group" required="required"/></td>
+                                    <td><input name="ssc_roll" type="text" id="ssc_roll" required="required"/></td>
                                     <td style="text-align:center;">
                                         <select style="text-align:center;padding:5px;font-size:1.1em;" id="definessc">
                                             <option value="জিপিএ">জিপিএ</option>
@@ -382,7 +382,7 @@ session_start();
 
                                     <td style="text-align:center;">
                                         <center>
-                                            <input type="text" class="ssc_p" id="ssc_p" placeholder="জিপিএ..." required2="required2" onKeyUp="sscp()"/>
+                                            <input type="text" class="ssc_p" id="ssc_p" placeholder="জিপিএ..." required="required" onKeyUp="sscp()"/>
 
                                         </center>
 
@@ -396,8 +396,8 @@ session_start();
 
                                     </td>
 
-                                    <td><input name="ssc_year" type="text" id="ssc_year" required2="required2"/></td>
-                                    <td><input name="ssc_board" type="text" id="ssc_board" required2="required2"/></td>
+                                    <td><input name="ssc_year" type="text" id="ssc_year" required="required"/></td>
+                                    <td><input name="ssc_board" type="text" id="ssc_board" required="required"/></td>
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>এইচ.এস.সি/সমমান/ ডিপ্লোমা :</strong></td>
@@ -488,7 +488,7 @@ session_start();
                                 <tr>
                                     <td width="21%" valign="top"><strong>শ্রেণী/ডিগ্রি (অধ্যয়নরত):</strong></td>
                                     <td width="28%">
-                                        <select name="cr_degree" style="font-size:1.2em;" onChange="current()" id="crdegree" required2="required2">
+                                        <select name="cr_degree" style="font-size:1.2em;" onChange="current()" id="crdegree" required="required">
                                             <option value="">- নির্বাচন করুন -</option>
                                             <option value="এইচএসসি/সমমান">এইচএসসি/সমমান</option>
                                             <option value="ডিপ্লোমা">ডিপ্লোমা</option>
@@ -502,13 +502,13 @@ session_start();
 
                                     </td>
                                     <td width="21%" valign="top"><strong>বিভাগ/বিষয় (অধ্যয়নরত):</strong></td>
-                                    <td width="30%"><input name="cr_subject" type="text" id="cr_subject" required2="required2" /></td>
+                                    <td width="30%"><input name="cr_subject" type="text" id="cr_subject" required="required" /></td>
                                 </tr>
 
                                 <tr>
                                     <td valign="top"><strong>সেমিস্টার /বর্ষ (অধ্যয়নরত):</strong></td>
                                     <td>
-                                        <select name="cr_what" style="font-size:1.2em;padding:5px;text-align:center;" onChange ="chrome()" id="crwhat" required2="required2">
+                                        <select name="cr_what" style="font-size:1.2em;padding:5px;text-align:center;" onChange ="chrome()" id="crwhat" required="required">
                                             <option value="">- নির্বাচন করুন -</option>
                                             <option value="বর্ষ">বর্ষ</option>
                                         </select>
@@ -589,7 +589,7 @@ session_start();
                                 <tr>
                                     <td width="21%" valign="top"><strong>সর্বশেষ উত্তীর্ণ শ্রেণী/ডিগ্রি :</strong></td>
                                     <td width="28%">
-                                        <select name="last_degree" style="font-size:1.2em;" onChange="current2()" id="ldegree" required2="required2">
+                                        <select name="last_degree" style="font-size:1.2em;" onChange="current2()" id="ldegree" required="required">
                                             <option value="">- নির্বাচন করুন -</option>
                                             <option value="এসএসসি/সমমান">এসএসসি/সমমান</option>
                                             <option value="এইচএসসি/সমমান">এইচএসসি/সমমান</option>
@@ -619,7 +619,7 @@ session_start();
 
                                         <p id="mygpa">
                                             <strong>জিপিএ/বিভাগ :&nbsp;&nbsp;&nbsp;</strong>
-                                            <select style="text-align:center;padding:5px;font-size:1.1em;" name="definecr" id="definecr" onChange="crcheck(this.value)" required2="required2">
+                                            <select style="text-align:center;padding:5px;font-size:1.1em;" name="definecr" id="definecr" onChange="crcheck(this.value)" required="required">
                                                 <option value="">- নির্বাচন করুন -</option>
                                                 <option value="বিভাগ">বিভাগ</option>
                                                 <option value="জিপিএ">জিপিএ</option>
@@ -627,7 +627,7 @@ session_start();
 
                                         </p>
 
-                                        <input name="cr_address" type="text" id="cr_address"  required2="required2" style="display:none;"/>
+                                        <input name="cr_address" type="text" id="cr_address"  required="required" style="display:none;"/>
 
                                     </td>
 
@@ -703,7 +703,7 @@ session_start();
                             <table border="1" width="100%" bgcolor="#FFFFFF">
                                 <tbody>
                                 <tr>
-                                    <td><input name="app_sign" type="file" id="signature" onchange="readURLa(this);" class="btna" required2="required2" /></td>
+                                    <td><input name="app_sign" type="file" id="signature" onchange="readURLa(this);" class="btna" required="required" /></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -718,25 +718,25 @@ session_start();
                                                 <td valign="top">*  ১. উপজেলা চেয়ারম্যান/ পৌরসভা মেয়র / ইউপি চেয়ারম্যান / প্রতিষ্ঠানের প্রধানের  (যদি পিতা/অভিভাবক চাকুরীজীবী হোন)  পক্ষ হতে পিতা/অভিভাবকের আয় সংক্রান্ত প্রত্যয়নপত্র : </td>
                                             </tr>
                                             <tr>
-                                                <td valign="top"><input name="father_income_attachment" onchange="readURL1(this);"  type="file" id="father_income_attachment"  class="btna" required2="required2"/></td>
+                                                <td valign="top"><input name="father_income_attachment" onchange="readURL1(this);"  type="file" id="father_income_attachment"  class="btna" required="required"/></td>
                                             </tr>
                                             <tr>
                                                 <td valign="top">*  ২. সর্বশেষ সেমিস্টার/লেভেল/বর্ষের নম্বরপত্র অথবা সার্টিফিকেট :</td>
                                             </tr>
                                             <tr>
-                                                <td valign="top"><input name="exam_sheet_attachment" onchange="readURL2(this);"  type="file" id="exam_sheet_attachment" class="btna" required2="required2" /></td>
+                                                <td valign="top"><input name="exam_sheet_attachment" onchange="readURL2(this);"  type="file" id="exam_sheet_attachment" class="btna" required="required" /></td>
                                             </tr>
                                             <tr>
                                                 <td valign="top">*  ৩. শিক্ষা প্রতিষ্ঠানে অধ্যয়নের স্বপক্ষে প্রতিষ্ঠান প্রধান/বিভাগীয় প্রধানের প্রত্যয়ন পত্র :</td>
                                             </tr>
                                             <tr>
-                                                <td valign="top"><input name="inst_attachment" type="file" onchange="readURL3(this);"  id="inst_attachment"  class="btna" required2="required2"/></td>
+                                                <td valign="top"><input name="inst_attachment" type="file" onchange="readURL3(this);"  id="inst_attachment"  class="btna" required="required"/></td>
                                             </tr>
                                             <tr>
                                                 <td valign="top">*  ৪.  স্থায়ী বাসিন্দার স্বপক্ষে সনদপত্র  (জেলা প্রশাসক / সার্কেল চিফ কর্তৃক প্রদত্ত)</td>
                                             </tr>
                                             <tr>
-                                                <td valign="top"><input name="com_attachment" type="file" onchange="readURL4(this);"  id="com_attachment" class="btna" required2="required2" /></td>
+                                                <td valign="top"><input name="com_attachment" type="file" onchange="readURL4(this);"  id="com_attachment" class="btna" required="required" /></td>
                                             </tr>
                                             <tr>
                                                 <td valign="top"><table width="100%" border="0">
@@ -763,7 +763,7 @@ session_start();
                                 </tbody>
                             </table>
                             <div class="subbut" id="dekhao">
-                                <input name="submit" id="gapply" type="submit" value="আবেদনের সময় শেষ হয়েছে" class="btnsub" {{--onClick="check(event)"--}} style="font-weight:bold;border-radius:8px;box-shadow:2px 2px 3px 4px rgb(83,157,2)"/>
+                                <input name="submit" id="gapply" type="submit" value="আবেদনের সময় শেষ হয়েছে" class="btnsub" onClick="check(event)" style="font-weight:bold;border-radius:8px;box-shadow:2px 2px 3px 4px rgb(83,157,2)"/>
                             </div>
                         </div>
                     </td>

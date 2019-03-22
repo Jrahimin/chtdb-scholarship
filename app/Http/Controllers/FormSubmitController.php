@@ -44,13 +44,13 @@ class FormSubmitController extends Controller
                 $gpaOrMark=$request->cr_marks;
             }
 
-            $filePathPersonal = $this->saveFile($request->file('app_pic'),"Personal_image");
-            $filePathAppSign = $this->saveFile($request->file('app_sign'),"signature");
-            $filePathFatherIncome = $this->saveFile($request->file('father_income_attachment'),"income_attachment");
-            $filePathExamSheet = $this->saveFile($request->file('exam_sheet_attachment'),"marksheet_image");
-            $filePathInstitute = $this->saveFile($request->file('inst_attachment'),"inst_image");
-            $filePathResident = $this->saveFile($request->file('com_attachment'),"resident_image");
-            $filePathQuota = $this->saveFile($request->file('quota_pic'),"quota_image");
+            $filePathPersonal = $request->hasFile('app_pic') ? $this->saveFile($request->file('app_pic'),"Personal_image") : null;
+            $filePathAppSign = $request->hasFile('app_sign') ? $this->saveFile($request->file('app_sign'),"signature") : null;
+            $filePathFatherIncome = $request->hasFile('father_income_attachment') ? $this->saveFile($request->file('father_income_attachment'),"income_attachment") : null;
+            $filePathExamSheet = $request->hasFile('exam_sheet_attachment') ? $this->saveFile($request->file('exam_sheet_attachment'),"marksheet_image") : null;
+            $filePathInstitute = $request->hasFile('inst_attachment') ? $this->saveFile($request->file('inst_attachment'),"inst_image") : null;
+            $filePathResident = $request->hasFile('com_attachment') ? $this->saveFile($request->file('com_attachment'),"resident_image") : null;
+            $filePathQuota = $request->hasFile('quota_pic') ? $this->saveFile($request->file('quota_pic'),"quota_image") : null;
 
             DB::beginTransaction();
             
@@ -145,7 +145,8 @@ class FormSubmitController extends Controller
             DB::commit();
         }
         catch (\Exception $e){
-            Log::error($e->getLine()." ".$e->getMessage());
+            Log::error($e->getFile()." ".$e->getLine());
+            Log::error($e->getMessage());
         }
     }
 
