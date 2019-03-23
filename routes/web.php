@@ -11,9 +11,15 @@
 |
 */
 
+Route::get('/test',function (){
+    $destinationFolder = "Personal_image";
+    dd(public_path("uploads/{$destinationFolder}/"));
+
+});
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('form');
 
 Auth::routes();
 

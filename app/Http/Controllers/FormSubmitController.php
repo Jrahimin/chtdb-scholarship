@@ -68,7 +68,7 @@ class FormSubmitController extends Controller
                 'personImageID' => $filePathPersonal,
                 'signImageID' => $filePathAppSign,
                 'quotaImageId' => $filePathQuota,
-                'quota_relation' => $request->quota_relation,
+                'quota_relation' => $request->quota_relation ?? '',
                 'point' => $point,
                 'financial_year' => $financialYear
             ]);
@@ -98,7 +98,7 @@ class FormSubmitController extends Controller
                 'semester' => $request->cr_semester,
                 'presentYear' => $gpaOrMark,
                 'institution' => $request->cr_inst,
-                'instituteAddress' => $request->cr_address2,
+                'instituteAddress' => $request->cr_address2 ?? '',
                 'certificateImageId' => $filePathExamSheet,
                 'studentshipImageId' => $filePathInstitute,
                 'applicant_id' => $applicant->id
@@ -143,19 +143,27 @@ class FormSubmitController extends Controller
             ]);
 
             DB::commit();
+
+            $success = true;
+            return view('submit-response', compact('success', 'applicant'));
         }
         catch (\Exception $e){
             Log::error($e->getFile()." ".$e->getLine());
             Log::error($e->getMessage());
+
+            $success = false;
+            return view('submit-response', compact('success'));
         }
     }
 
     protected function saveFile($file, $destinationFolder)
     {
-        $fileNamePersonal= "{$destinationFolder}_".time()."_".str_random(4).$file->getClientOriginalExtension();
+        $fileNamePersonal= "{$destinationFolder}_".time()."_".str_random(4).".".$file->getClientOriginalExtension();
         $destinationPath= "uploads/{$destinationFolder}/";
+
         if(!is_dir(public_path($destinationPath)))
-            mkdir(public_path($destinationPath));
+            mkdir(public_path($destinationPath),0777,true);
+
         $file->move(public_path($destinationPath), $fileNamePersonal);
 
         return $destinationPath.$fileNamePersonal;

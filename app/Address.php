@@ -8,6 +8,7 @@ class Address extends Model
 {
     protected $table = 'address';
     protected $guarded = ['id'];
+    public $timestamps = false;
 
     public function applicant(){
         return $this->belongsTo(Applicant::class);
