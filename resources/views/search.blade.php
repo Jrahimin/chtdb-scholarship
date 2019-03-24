@@ -52,7 +52,7 @@
 
                     <p class="setright">
                         <a href="index.php" class="plink" onClick="donto(event)">মূল পাতা</a>
-                        <a href="new-form.php" class="plink">নিবন্ধন</a>
+                        <a href="{{ route('form') }}" class="plink">নিবন্ধন</a>
                     </p>
 
                 <td/>
@@ -75,7 +75,7 @@
                 <td width="50%">
                     <br/>
 
-                    <form action="showform_all.php" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                    <form action="{{ route('form_full') }}" method="get" enctype="multipart/form-data" accept-charset="UTF-8">
                         <br/>
 
                         <p class="lbl">আইডি দিয়ে বিস্তারিত খোঁজ করুন</p><br/>
@@ -87,7 +87,7 @@
                         </p>
 
                         <p class="oye">
-                            <input type="text" id="id" class="inpu" name="id" placeholder=" আইডি..."/>
+                            <input type="text" id="id" class="inpu" name="id" placeholder=" আইডি..." required/>
                         </p>
 
 
@@ -97,8 +97,6 @@
                         <p class="oye">
 
                             <input type="submit" class="bdesh" name="submit" id="mybt" value="খোঁজ করুন" />
-                        </p>
-
                         </p>
 
                     </form>

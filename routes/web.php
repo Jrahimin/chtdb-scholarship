@@ -26,6 +26,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'SearchController@index')->name('search')->middleware('auth');
+Route::get('/result', 'SearchController@searchResultFull')->name('form_full')->middleware('auth');
+
 Route::post('/login-custom', 'LoginCustomController@authenticate')->name('login_custom');
 
 Route::post('/form-submit', 'FormSubmitController@submit')->name('form_submit');
