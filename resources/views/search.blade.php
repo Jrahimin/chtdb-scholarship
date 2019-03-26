@@ -6,8 +6,8 @@
     <style type="text/css">
         *{margin:0;padding:0;font-family:verdana;}
         a{text-decoration:none;}
-        body{padding:3px;} .menubar{margin:0;width:100%;height:auto;background:{{public_path('images/back.jpg')}} no-repeat;background-size:cover; border:none;}.mymenu{width:98%;
-                                                                                                                                               background:{{public_path('images/back.jpg')}} no-repeat;background-size:cover;border:none;}
+        body{padding:3px;} .menubar{margin:0;width:100%;height:auto;background:url('images/back.jpg') no-repeat;background-size:cover; border:none;}.mymenu{width:98%;
+                                                                                                                                               background:url('images/back.jpg') no-repeat;background-size:cover;border:none;}
         .menuleft{width:70%;border:none;} .menuright{width:32%;border:none;} .plink{color:rgb(237,255,200);text-decoration:none;padding:18px;font-weight:bold;border:none;}
         .setright{text-align:right;border:none;}
         .bdesh{ color: white;padding: 10px 12px; text-align: center; text-decoration: none;font-size:1.2em;border-radius:5px;border:1px solid rgb(3,33,78);font-size:1.2em;padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold;
@@ -16,7 +16,7 @@
         .inpu:focus{background-color: rgb(228,248,209);box-shadow:inset 2px 2px 2px 1px rgb(184,227,122);}				.page{padding:8px;color:rgb(216,246,254);font-size:2em;font-weight:bold;height:auto;text-shadow: -1px -1px 5px rgba(0,0,0,0.3);}.menuleft{width:50%;} .menuright{width:50%;}
         #sday{font-size:0.9em;padding:5px;text-align:center;}.opt{width:150px;background-color:rgb(228,248,209);}
         .hd{font-weight:bold; color:rgb(34,83,78); font-size:1.1em;text-align:right;padding-bottom:8px;}
-        .sear{background:{{public_path('images/back2.jpg')}} no-repeat; background-size:cover;}
+        .sear{background:url('images/back2.jpg') no-repeat; background-size:cover;}
         .tab{width:100%;} .tabq{width:100%;}
         .a1, .a2, .a3{width:33%;} #upz{padding:5px;}
         .logout{
@@ -75,7 +75,7 @@
                 <td width="50%">
                     <br/>
 
-                    <form action="{{ route('form_full') }}" method="get" enctype="multipart/form-data" accept-charset="UTF-8">
+                    <form action="{{ route('search_result') }}" method="get" enctype="multipart/form-data" accept-charset="UTF-8">
                         <br/>
 
                         <p class="lbl">আইডি দিয়ে বিস্তারিত খোঁজ করুন</p><br/>
@@ -104,7 +104,7 @@
 
                 <td width="50%">
 
-                    <form action="showform.php" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                    <form action="{{ route('search_result') }}" method="get" enctype="multipart/form-data" accept-charset="UTF-8">
 
                         <br/>
                         <p class="lbl">বিস্তারিত খোঁজ করুন</p><br/>
@@ -280,7 +280,7 @@
 
         </form>
 
-        <form action="showform_datatable.php" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+        <form action="{{ route('search_result') }}" method="get" enctype="multipart/form-data" accept-charset="UTF-8">
             <br/><br/>
             <p class="lbl">সিনোপসিস আকারে খোঁজ করুন</p>
 
@@ -290,7 +290,7 @@
             </p>
 
             <p class="oye">
-                <select class="opt" name="cr_edu" style="font-size:1em;text-align:center;padding:5px;" id="current">
+                <select class="opt" name="edu" style="font-size:1em;text-align:center;padding:5px;" id="current">
                     <option value=""></option>
                     <option value="এইচএসসি/সমমান">এইচএসসি/সমমান</option>
                     <option value="ডিপ্লোমা">ডিপ্লোমা</option>
@@ -310,7 +310,7 @@
             </p>
 
             <p class="oye">
-                <select class="opt" name="dist2" onChange="changekar2(this.value)" id="sday2" style="font-size:1em;text-align:center;padding:5px;">
+                <select class="opt" name="dist" onChange="changekar2(this.value)" id="sday2" style="font-size:1em;text-align:center;padding:5px;">
                     <option value=""></option>
                     <option value="রাঙামাটি">রাঙামাটি</option>
                     <option value="বান্দরবান">বান্দরবান</option>
@@ -325,7 +325,7 @@
 
             <p class="oye">
 
-                <select class="opt" name="subdist2" id="upz2" style="font-size:1em;text-align:center;padding:5px;">
+                <select class="opt" name="subdist" id="upz2" style="font-size:1em;text-align:center;padding:5px;">
                     <option value=""></option>
                     <option value="রাঙামাটি সদর">রাঙামাটি সদর</option>
                     <option value="বরকল">বরকল</option>
@@ -361,7 +361,7 @@
             </p>
 
             <p class="oye">
-                <select class="opt" onChange="comcheck2(this.value)" name="comm2" id="comm2" style="font-size:1em;padding:5px;text-align:center;">
+                <select class="opt" onChange="comcheck2(this.value)" name="comm" id="comm2" style="font-size:1em;padding:5px;text-align:center;">
                     <option value=""></option>
                     <option value="চাকমা">চাকমা</option>
                     <option value="মারমা">মারমা</option>
@@ -387,15 +387,13 @@
                     <td width="34%">
 
                     </td>
-                    <td width="34%">
+                    <td width="50%">
 
                     </td>
 
                     <td width="34%">
                         <p class="hd">
-
-                            <input type="text" class="inpu" id="comtext2" name="commus2" placeholder="অন্যান্য সম্প্রদায়..." style="display:none;"/>
-
+                            <input type="text" class="inpu" id="comtext2" name="comm" placeholder="অন্যান্য সম্প্রদায়..." style="display:none;"/>
                         </p>
                     </td>
                 </tr>
@@ -416,7 +414,8 @@
     </div>
 
     <br/><br/>
-    <form action="logout.php" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+    <form action="{{ route('logout') }}" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+        @csrf
         <p class="oye" >
             <input type="submit" class="bdesh logout" style="margin-right:15%;" id="mybt3" name="logout" value=" লগ আউট"/>
         </p>

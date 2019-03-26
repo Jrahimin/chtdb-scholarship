@@ -12,9 +12,13 @@
 */
 
 Route::get('/test',function (){
-    $destinationFolder = "Personal_image";
-    dd(public_path("uploads/{$destinationFolder}/"));
+    /*$applicants = \App\Applicant::where('id', '<', 2713)->get();
 
+    foreach ($applicants as $applicant)
+    {
+        $applicant->personImageID = "uploads/Personal_image/".$applicant->personImageID;
+        $applicant->save();
+    }*/
 });
 
 Route::get('/', function () {
@@ -23,10 +27,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'SearchController@index')->name('search')->middleware('auth');
-Route::get('/result', 'SearchController@searchResultFull')->name('form_full')->middleware('auth');
+Route::get('/result', 'SearchController@searchResult')->name('search_result')->middleware('auth');
 
 Route::post('/login-custom', 'LoginCustomController@authenticate')->name('login_custom');
 

@@ -12,15 +12,15 @@ session_start();
             *{margin:0;padding:0;font-family:verdana, sans-serif;} body{padding:3px;}
             a{text-decoration:none;}
 
-            .menubarhq{margin:0;width:100%;height:auto;background:url(back.jpg) no-repeat;background-size:cover; border:none;}
-            .mymenuhq{width:98%;background:url(back.jpg) no-repeat;background-size:cover;border:none;}
+            .menubarhq{margin:0;width:100%;height:auto;background:url('images/back.jpg') no-repeat;background-size:cover; border:none;}
+            .mymenuhq{width:98%;background:url('images/back.jpg') no-repeat;background-size:cover;border:none;}
             .menulefthq{width:70%;border:none;}
             .pagehq{padding:8px;color:rgb(216,246,254);font-size:2em;font-weight:bold;height:auto;text-shadow: -1px -1px 5px rgba(0,0,0,0.3);} .menurighthq{width:50%;} .setrighthq{text-align:right;border:none;}
             .plinkhq{color:rgb(237,255,200);text-decoration:none;padding:18px;font-weight:bold;border:none;}
             .plinkhq:hover{text-shadow: -1px -1px 0 rgba(0,0,0,0.3); border-radius:5px;background-color:rgb(77,149,72);border-bottom:solid 1px white;}
             .bdesh{ color: white;padding: 10px 12px; text-align: center; text-decoration: none;font-size:1.2em;border-radius:5px;border:1px solid #8bcf54;padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold;
                 background-color: #8AC611;background-image: -webkit-gradient(linear, left top, left bottom, from(#8AC611), to(#699314));background-image: -webkit-linear-gradient(top, #8AC611, #699314); background-image: -moz-linear-gradient(top, #8AC611, #699314);background-image: -ms-linear-gradient(top, #8AC611, #699314); background-image: -o-linear-gradient(top, #8AC611, #699314);background-image: linear-gradient(to bottom, #8AC611, #699314);}.bdesh:hover{cursor:pointer;}
-            .wrapper{width:100%;height:auto;background:url(back2.jpg) repeat-y;background-size:cover;} .heading{width:100%;}
+            .wrapper{width:100%;height:auto;background:url('images/back2.jpg') repeat-y;background-size:cover;} .heading{width:100%;}
             .tab{width:96%;background-color:rgb(185,234,119);text-align:center;table-layout:fixed;}
             .info{text-shadow:2px 2px 3px rgb(37,69,1);font-size:2.4em;color:white;text-align:center;}
             .headd{background-color:rgb(176,231,103);font-weight:bold;}
@@ -28,7 +28,7 @@ session_start();
 
             .please{color:rgb(220,35,35);font-weight:bold;text-shadow:2px 2px 1px rgb(180,180,180);}
             .intoin{background-color:rgb(186,235,150);display:inline-block;padding:10px 16px;border-radius:10px;
-                border:solid 2px black;} .wrapit{width:100%;min-height:950px;background:url(back2.jpg) no-repeat;background-size:cover;)}
+                border:solid 2px black;} .wrapit{width:100%;min-height:950px;background:url('images/back2.jpg') no-repeat;background-size:cover;)}
             .det{background-color:rgb(198,237,143);}
             td{word-wrap: break-word;}
             .myback {
@@ -60,8 +60,8 @@ session_start();
 
                     <p class="setrighthq">
                         <a href="index.php" class="plinkhq" onClick="donto(event)">মূল পাতা</a>
-                        <a href="new-form.php" class="plinkhq">নিবন্ধন</a>
-                        <a href="search.php" class="plinkhq">তথ্য খুঁজুন</a>
+                        <a href="{{ route('form') }}" class="plinkhq">নিবন্ধন</a>
+                        <a href="{{ route('search') }}" class="plinkhq">তথ্য খুঁজুন</a>
                     </p>
 
                 <td/>
@@ -80,10 +80,6 @@ session_start();
         </p>
     </div>
     <hr/><hr/>
-
-<?php
-include "connect.php";
-?>
 
 <div class="col-md-10">
 <table class="table" id="info">
@@ -107,145 +103,102 @@ include "connect.php";
     <tbody>
 
     <?php
-    if($_SESSION['userid'])
-    {
-    if(isset($_POST['subtable'])) {
-        $communitySelect = $_POST['comm2'];
-        $db_fields = array('presentClass', 'district', 'upazilla', 'quota', 'community');
-        $db_table = array('qualification', 'address', 'address', 'applicant', 'applicant');
-        $form_fields = array('cr_edu', 'dist2', 'subdist2', 'quota', 'commus2');
-        $conditions = array();
-
-        // loop through the defined fields
-        $i = 0;
-        foreach ($form_fields as $field) {
-            /*if($field=='quota' && $_POST[$field]=='')
-            {
-                $conditions[]="applicant.quota=''";
-            }*/
-            // if the field is set and not empty
-            if (isset($_POST[$field]) && $_POST[$field] != '') {
-                // create a new condition while escaping the value inputed by the user
-                $conditions[] = "$db_table[$i].$db_fields[$i]='$_POST[$field]'";
-                $i++;
-            } else {
-                if ($field === 'commus2' && $communitySelect === 'অন্যান্য') {
-                    $conditions[] = "applicant.community <>'চাকমা' AND applicant.community <> 'মারমা' AND applicant.community <> 'ত্রিপুরা' AND applicant.community <> 'তঞ্চঙ্গা' AND applicant.community <> 'পাংখো'  AND applicant.community <> 'খুমি' AND applicant.community <> 'লুসাই' AND applicant.community <> 'বম' AND applicant.community <> 'ম্রো' AND applicant.community <> 'খিয়াং'  AND applicant.community <> 'চাক' AND applicant.community <> 'বাঙালি'";
-                }
-                $i++;
-                continue;
-            }
-        }
-        // builds the query
-        $query = "SELECT * FROM applicant inner join family on applicant.id=family.applicant_id inner join bank_info on applicant.id=bank_info.applicant_id inner join qualification on applicant.id=qualification.applicant_id  inner join address on applicant.id=address.applicant_id ";
-        // if there are conditions defined
-        if (count($conditions) > 0) {
-            // append the conditions
-            $query .= "WHERE " . implode(' AND ', $conditions);
-            if ($_POST['quota'] == '') {
-                $query .= " AND applicant.quota=''";
-            }
-        } else {
-            $query .= "WHERE applicant.quota=''";
-        }
-
-        $query .= " ORDER BY applicant.point DESC";
-        $result = mysqli_query($connection, $query);
         $count = 0;
+        foreach ($applicants as $applicant) {
+            $applicant_id = $applicant->id;
+            $applicant_name = $applicant->applicantname;
+            $applicant_nameBang = $applicant->applicantnameBang;
+            $gender = $applicant->gender;
+            $quota = $applicant->quota;
+            $quota_relation =   $applicant->quota_relation;
+            $dob = $applicant->dob;
+            $app_mobile = $applicant->appMobile;
+            $app_email = $applicant->email;
+            $app_nid = $applicant->nid;
+            $app_bid = $applicant->bid;
+            $community = $applicant->community;
+            $app_pic = $applicant->personImageID;
+            $app_sign = $applicant->signImageID;
 
-        while ($row = mysqli_fetch_array($result)) {
-            $applicant_id = $row['applicant_id'];
-            $applicant_name = $row['applicantname'];
-            $applicant_nameBang = $row['applicantnameBang'];
-            $gender = $row['gender'];
-            $quota = $row['quota'];
-            $dob = $row['dob'];
-            $app_mobile = $row['appMobile'];
-            $app_email = $row['email'];
-            $app_nid = $row['nid'];
-            $app_bid = $row['bid'];
-            $community = $row['community'];
-            $app_pic = $row['personImageID'];
-            $app_sign = $row['signImageID'];
-            $quota_pic = $row['quotaImageId'];
-
+            $quota_pic = $applicant->quotaImageId;
             //family
-            $fathers_name = $row['fathersNname'];
-            $f_occu = $row['fathersOcc'];
-            $f_mobile = $row['fathersMobile'];
-            $mothers_name = $row['mothersName'];
-            $m_occu = $row['mothersOcc'];
-            $g_name = $row['guardianName'];
-            $g_relation = $row['relation'];
-            $g_y_income = $row['guardiansIncome'];
-            $g_mobile = $row['guardiansMobile'];
-            $father_income_attachment = $row['incomeImageId'];
+            $fathers_name = $applicant->family->fathersNname;
+            $f_occu = $applicant->family->fathersOcc;
+            $f_mobile = $applicant->family->fathersMobile;
+            $mothers_name = $applicant->family->mothersName;
+            $m_occu = $applicant->family->mothersOcc;
+            $g_name = $applicant->family->guardianName;
+            $g_relation = $applicant->family->relation;
+            $g_y_income = $applicant->family->guardiansIncome;
+            $g_mobile = $applicant->family->guardiansMobile;
 
+            $father_income_attachment = $applicant->family->incomeImageId;
             //bank_info
-            $b_ac = $row['bankAcc'];
-            $b_ac_name = $row['accName'];
-            $b_dist = $row['bankName'];
-            $b_branch = $row['branchName'];
+            $b_ac = $applicant->bankInfo->bankAcc;
+            $b_ac_name = $applicant->bankInfo->accName;
+            $b_dist = $applicant->bankInfo->bankName;
 
+            $b_branch = $applicant->bankInfo->branchName;
             //address
-            $pa_house = $row['roadNo'];
-            $pr_house = $row['roadNo2'];
-            $pa_post = $row['postOffice'];
-            $pr_post = $row['postOffice2'];
-            $pa_subdist = $row['upazilla'];
+            $pa_house = $applicant->address->roadNo;
+            $pr_house = $applicant->address->roadNo2;
+            $pa_post = $applicant->address->postOffice;
+            $pr_post = $applicant->address->postOffice2;
 
-            $pr_subdist = $row['upazilla2'];
-            $pa_vill = $row['village'];
-            $pr_vill = $row['village2'];
-            $com_attachment = $row['residentImageId'];
+            $pa_subdist = $applicant->address->upazilla;
+            $pr_subdist = $applicant->address->upazilla2;
+            $pa_vill = $applicant->address->village;
+            $pr_vill = $applicant->address->village2;
 
+            $com_attachment = $applicant->address->residentImageId;
             //district
-            $pa_dist = $row['district'];
 
+            $pa_dist = $applicant->address->district;
             //district2
-            $pr_dist = $row['district2'];
 
+            $pr_dist = $applicant->address->district2;
             //qualification
-            $ssc_roll = $row['sscRoll'];
-            $ssc_gpa = $row['sscGpa'];
-            $ssc_year = $row['sscYear'];
-            $ssc_board = $row['sscBoard'];
+            $ssc_roll= $applicant->qualification->sscRoll;
+            $ssc_gpa= $applicant->qualification->sscGpa;
+            $ssc_year= $applicant->qualification->sscYear;
 
-            $hsc_roll = $row['hscRoll'];
-            $hsc_cgpa = $row['hscGpa'];
-            $hsc_year = $row['hscYear'];
-            $hsc_board = $row['hscBoard'];
+            $ssc_board= $applicant->qualification->sscBoard;
+            $ssc_group= $applicant->qualification->sscGroup;
+            $hsc_roll= $applicant->qualification->hscRoll;
+            $hsc_cgpa= $applicant->qualification->hscGpa;
 
-            $grad_roll = $row['gradRoll'];
-            $grad_cgpa = $row['gradGpa'];
-            $grad_year = $row['gradYear'];
-            $grad_board = $row['gradUni'];
+            $hsc_year= $applicant->qualification->hscYear;
+            $hsc_board= $applicant->qualification->hscBoard;
+            $hsc_group= $applicant->qualification->hscGroup;
+            $grad_roll= $applicant->qualification->gradRoll;
 
-            $master_roll = $row['postgradRoll'];
-            $master_cgpa = $row['postgradGpa'];
-            $master_year = $row['postgradYear'];
-            $master_board = $row['postgradUni'];
+            $grad_cgpa= $applicant->qualification->gradGpa;
+            $grad_year= $applicant->qualification->gradYear;
+            $grad_board= $applicant->qualification->gradUni;
+            $grad_group= $applicant->qualification->gradGroup;
 
-            $cr_degree = $row['presentClass'];  //pesent class/degree name
-            $cr_what = $row['prYear'];
-            $last_degree = $row['lastDegree'];
-            $last_what = $row['yearSemester'];
-            $last_semester = $row['lastSemester'];
-            $cr_subject = $row['subject'];
-            $cr_semester = $row['semester'];
-            $cr_address = $row['presentYear'];  //present class year name
-            $exam_sheet_attachment = $row['certificateImageId'];
-            $inst_attachment = $row['studentshipImageId'];
+            $master_roll= $applicant->qualification->postgradRoll;
+            $master_cgpa= $applicant->qualification->postgradGpa;
+            $master_year= $applicant->qualification->postgradYear;
+            $master_board= $applicant->qualification->postgradUni;
+            $master_group= $applicant->qualification->postgradGroup;
+            $cr_degree= $applicant->qualification->presentClass;  //pesent class/degree name
+            $cr_what= $applicant->qualification->prYear;
+            $last_degree= $applicant->qualification->lastDegree;
+            $last_what= $applicant->qualification->yearSemester;
+            $last_semester= $applicant->qualification->lastSemester;
 
+            $cr_subject= $applicant->qualification->subject;
+            $cr_semester= $applicant->qualification->semester;
+            $cr_address= $applicant->qualification->presentYear;  //present class year name
             //institute
-            $cr_inst = $row['institution'];
-            $cr_address2 = $row['instituteAddress'];  //present class address name
-            $count++;
+            $cr_inst= $applicant->qualification->institution;
+            $cr_address2= $applicant->qualification->instituteAddress;  //present class address name
             ?>
 
             <tr>
                 <td>
-                    <?php echo $count; ?>.
+                    <?php echo ++$count; ?>.
                 </td>
 
                 <td>
@@ -295,8 +248,6 @@ include "connect.php";
 
             <?php
         }
-    }
-    }
         ?>
     </tbody>
 

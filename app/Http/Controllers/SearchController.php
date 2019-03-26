@@ -13,43 +13,48 @@ class SearchController extends Controller
         return view('search');
     }
 
-    public function searchResultBrief()
-    {
-        return view('showform');
-    }
-
-    public function searchResultFull(Request $request)
+    public function searchResult(Request $request)
     {
         try{
-            $db_fields = array('id', 'community', 'district2', 'upazilla2', 'presentClass');
-            $db_table = array('applicant', 'applicant', 'address', 'address', 'qualification');
-            $form_fields = array('id', 'commus', 'dist', 'subdist', 'edu');
-            $conditions = array();
-
             $applicants = Applicant::with('address', 'bankInfo', 'family', 'qualification');
             if($request->id){
                 $applicant = $applicants->where('id', $request->id)->firstOrFail();
+                //dd($applicant);
                 return view('showform_all', compact('applicant'));
             }
 
-            foreach($form_fields as $field){
+            //filtering starts
+            if($request->commus)
+                $applicants->where('community', $request->commus);
+            if($request->dist)
+                $applicants->whereHas('address', function ($query) use($request){
+                    $query->where('district2', $request->dist);
+                });
+            if($request->subdist)
+                $applicants->whereHas('address', function ($query) use($request){
+                    $query->where('upazilla2', $request->subdist);
+                });
+            if($request->edu)
+                $applicants->whereHas('qualification', function ($query) use($request){
+                    $query->where('presentClass', $request->edu);
+                });
+            //filtering ends
 
-                if(isset($_POST[$field]) && $_POST[$field] != ''){
-                    if($field==='id')
-                    {
-                        $conditions[]= "$db_table[$i].$db_fields[$i]=$_POST[$field]";
-                        continue;
-                    }
-                    $conditions[] = "$db_table[$i].$db_fields[$i] LIKE '%" .$_POST[$field]. "%'";
-                    $i++;
-                }
-                else{
-                    $i++;
-                    continue;
-                }
+            // if data in tabular format
+            if($request->filled('subtable')){
+                if($request->quota)
+                    $applicants->where('quota', $request->quota);
+                else
+                    $applicants->where('quota', '');
+
+                $applicants = $applicants->get();
+
+                return view('showform_datatable', compact('applicants'));
             }
 
-            return view('showform');
+            $applicants = $applicants->get();
+
+            return view('showform', compact('applicants'));
         }
         catch (\Exception $e){
             Log::error($e->getFile()." ".$e->getLine());

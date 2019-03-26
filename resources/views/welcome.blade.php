@@ -693,9 +693,9 @@ session_start();
 
                                 <tr>
                                     <td valign="top"><strong>বর্তমান শিক্ষা প্রতিষ্ঠান :</strong></td>
-                                    <td><input name="cr_inst" type="text" id="cr_inst" /></td>
+                                    <td><input name="cr_inst" type="text" id="cr_inst" required/></td>
                                     <td valign="top"><strong>ঠিকানা :</strong></td>
-                                    <td valign="top"><input name="cr_address2" type="text" id="cr_address2" /></td>
+                                    <td valign="top"><input name="cr_address2" type="text" id="cr_address2" required/></td>
                                 </tr>
                                 </tbody>
                             </table>
