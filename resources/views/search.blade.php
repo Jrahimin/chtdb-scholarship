@@ -90,9 +90,7 @@
                             <input type="text" id="id" class="inpu" name="id" placeholder=" আইডি..." required/>
                         </p>
 
-
                         <br/>
-                        <br/><br/><br/>
 
                         <p class="oye">
 
@@ -114,8 +112,22 @@
 
                         <br/>
 
+                        <p class="hd">
+                            অর্থবছর
+                        </p>
+                        <p class="oye">
+                            <select class="opt" name="financial_year" style="font-size:1em;text-align:center;padding:5px;" id="financial_year">
+                                <option value="২০১৮-২০১৯">২০১৮-২০১৯</option>
+                                <option value="২০১৯-২০২০">২০১৯-২০২০</option>
+                                <option value="২০২০-২০২১">২০২০-২০২১</option>
+                                <option value="২০২১-২০২২">২০২১-২০২২</option>
+                                <option value="২০২২-২০২৩">২০২২-২০২৩</option>
+                                <option value="২০২৩-২০২৪">২০২৩-২০২৪</option>
+                                <option value="২০২৪-২০২৫">২০২৪-২০২৫</option>
+                            </select>
 
-
+                            <br/><br/>
+                        </p>
 
                         <p class="oye">
 
@@ -133,7 +145,7 @@
                         </p>
                         </p>
 
-                        <br/><br/><br/>
+                        <br/>
                         <p class="hd">
                             উপজেলা
                         </p>
@@ -200,7 +212,7 @@
 
 </span>
 
-                            <br/><br/><br/><br/>
+                            <br/>
 
                         <p class="hd">
                             সম্প্রদায়
@@ -225,7 +237,7 @@
                                 <option value="অন্যান্য">অন্যান্য</option>
                             </select>
 
-                            <br/><br/>
+                            <br/>
 
                             <table class="tab">
                                 <tr class="tabq">
@@ -240,7 +252,7 @@
                 </td>
             </tr>
         </table>
-        <br/><br/>
+        <br/>
 
         </p>
 
@@ -261,7 +273,7 @@
                 <option value="স্নাতকোত্তর">স্নাতকোত্তর</option>
             </select>
 
-            <br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/>
 
             <input type="submit" class="bdesh" name="submit" id="mybt" value="খোঁজ করুন" />
 
@@ -286,6 +298,23 @@
 
             <br/><br/>
             <p class="hd">
+                অর্থবছর
+            </p>
+            <p class="oye">
+                <select class="opt" name="financial_year" style="font-size:1em;text-align:center;padding:5px;" id="financial_year">
+                    <option value="২০১৮-২০১৯">২০১৮-২০১৯</option>
+                    <option value="২০১৯-২০২০">২০১৯-২০২০</option>
+                    <option value="২০২০-২০২১">২০২০-২০২১</option>
+                    <option value="২০২১-২০২২">২০২১-২০২২</option>
+                    <option value="২০২২-২০২৩">২০২২-২০২৩</option>
+                    <option value="২০২৩-২০২৪">২০২৩-২০২৪</option>
+                    <option value="২০২৪-২০২৫">২০২৪-২০২৫</option>
+                </select>
+
+                <br/><br/>
+            </p>
+
+            <p class="hd">
                 বর্তমান  শিক্ষা পর্যায়
             </p>
 
@@ -303,7 +332,7 @@
                 </select>
 
             </p>
-            <br/><br/>
+            <br/>
 
             <p class="hd">
                 জেলা
@@ -317,7 +346,6 @@
                     <option value="খাগড়াছড়ি">খাগড়াছড়ি</option>
                 </select>
             </p>
-            <br/>
             <br/>
             <p class="hd">
                 উপজেলা
@@ -340,12 +368,11 @@
                 </select>
             </p>
 
-            <br/><br/>
+            <br/>
 
             <p class="hd">
                 বিশেষ কোটা
             </p>
-            <br/>
             <p class="oye">
                 <select class="opt" name="quota" id="qt" style="width:120px;font-size:1.1em;padding:5px;text-align:center;">
                     <option value=""> </option>
@@ -355,7 +382,7 @@
                     <option value="পোষ্য">পোষ্য</option>
                 </select>
             </p>
-            <br/><br/>
+            <br/>
             <p class="hd">
                 সম্প্রদায়
             </p>
@@ -380,8 +407,7 @@
 
             </p>
 
-            <br/><br/>
-
+            <br/>
             <table>
                 <tr>
                     <td width="34%">
@@ -399,7 +425,7 @@
                 </tr>
             </table>
 
-            <br/><br/><br/><br/><br/>
+            <br/>
 
             <p class="oye">
 

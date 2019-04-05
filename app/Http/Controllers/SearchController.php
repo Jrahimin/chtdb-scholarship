@@ -16,6 +16,7 @@ class SearchController extends Controller
     public function searchResult(Request $request)
     {
         try{
+            ini_set('memory_limit', '512M');
             $applicants = Applicant::with('address', 'bankInfo', 'family', 'qualification');
             if($request->id){
                 $applicant = $applicants->where('id', $request->id)->firstOrFail();
@@ -26,6 +27,8 @@ class SearchController extends Controller
             //filtering starts
             if($request->commus)
                 $applicants->where('community', $request->commus);
+            if($request->financial_year)
+                $applicants->where('financial_year', $request->financial_year);
             if($request->dist)
                 $applicants->whereHas('address', function ($query) use($request){
                     $query->where('district2', $request->dist);
