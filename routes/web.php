@@ -12,13 +12,7 @@
 */
 
 Route::get('/test',function (){
-    /*$applicants = \App\Applicant::where('id', '<', 2713)->get();
-
-    foreach ($applicants as $applicant)
-    {
-        $applicant->personImageID = "uploads/Personal_image/".$applicant->personImageID;
-        $applicant->save();
-    }*/
+    //
 });
 
 Route::get('/', function () {
@@ -26,8 +20,6 @@ Route::get('/', function () {
 })->name('form');
 
 Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'SearchController@index')->name('search')->middleware('auth');
 Route::get('/result', 'SearchController@searchResult')->name('search_result')->middleware('auth');

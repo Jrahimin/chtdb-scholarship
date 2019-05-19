@@ -118,7 +118,7 @@
                         <p class="oye">
                             <select class="opt" name="financial_year" style="font-size:1em;text-align:center;padding:5px;" id="financial_year">
                                 <option value="২০১৮-২০১৯">২০১৮-২০১৯</option>
-                                <option value="২০১৯-২০২০">২০১৯-২০২০</option>
+                                <option value="২০১৯-২০২০" selected>২০১৯-২০২০</option>
                                 <option value="২০২০-২০২১">২০২০-২০২১</option>
                                 <option value="২০২১-২০২২">২০২১-২০২২</option>
                                 <option value="২০২২-২০২৩">২০২২-২০২৩</option>
@@ -303,7 +303,7 @@
             <p class="oye">
                 <select class="opt" name="financial_year" style="font-size:1em;text-align:center;padding:5px;" id="financial_year">
                     <option value="২০১৮-২০১৯">২০১৮-২০১৯</option>
-                    <option value="২০১৯-২০২০">২০১৯-২০২০</option>
+                    <option value="২০১৯-২০২০" selected>২০১৯-২০২০</option>
                     <option value="২০২০-২০২১">২০২০-২০২১</option>
                     <option value="২০২১-২০২২">২০২১-২০২২</option>
                     <option value="২০২২-২০২৩">২০২২-২০২৩</option>
