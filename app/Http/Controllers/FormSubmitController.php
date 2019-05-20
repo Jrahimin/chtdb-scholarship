@@ -7,6 +7,7 @@ use App\Applicant;
 use App\BankInfo;
 use App\Family;
 use App\Qualification;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -16,7 +17,7 @@ class FormSubmitController extends Controller
     public function submit(Request $request)
     {
         try{
-            $currentYearRange = date('Y')."-".(date('Y') + 1);
+            $currentYearRange = (date('Y') - 1)."-".date('Y');
             $financialYear =(string)$this->convertChar($currentYearRange, true);
             $gpaPoint = (float)$this->convertChar($request->cr_point);
             $mark = (float)$this->convertChar($request->cr_marks);
@@ -159,7 +160,7 @@ class FormSubmitController extends Controller
     protected function saveFile($file, $destinationFolder)
     {
         $fileNamePersonal= "{$destinationFolder}_".time()."_".str_random(4).".".$file->getClientOriginalExtension();
-        $destinationPath= "uploads/{$destinationFolder}/";
+        $destinationPath= "uploads/".Carbon::now()->format('Y')."/".$destinationFolder."/";
 
         if(!is_dir(public_path($destinationPath)))
             mkdir(public_path($destinationPath),0777,true);

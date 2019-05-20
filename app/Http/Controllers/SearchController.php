@@ -20,42 +20,16 @@ class SearchController extends Controller
             $applicants = Applicant::with('address', 'bankInfo', 'family', 'qualification');
             if($request->id){
                 $applicant = $applicants->where('id', $request->id)->firstOrFail();
-                //dd($applicant);
                 return view('showform_all', compact('applicant'));
             }
 
-            //filtering starts
-            if($request->commus)
-                $applicants->where('community', $request->commus);
-            if($request->financial_year)
-                $applicants->where('financial_year', $request->financial_year);
-            if($request->dist)
-                $applicants->whereHas('address', function ($query) use($request){
-                    $query->where('district2', $request->dist);
-                });
-            if($request->subdist)
-                $applicants->whereHas('address', function ($query) use($request){
-                    $query->where('upazilla2', $request->subdist);
-                });
-            if($request->edu)
-                $applicants->whereHas('qualification', function ($query) use($request){
-                    $query->where('presentClass', $request->edu);
-                });
-            //filtering ends
+            //filtering data
+            $applicants = $this->filterData($request, $applicants);
+            $applicants = $applicants->get();
 
             // if data in tabular format
-            if($request->filled('subtable')){
-                if($request->quota)
-                    $applicants->where('quota', $request->quota);
-                else
-                    $applicants->where('quota', '');
-
-                $applicants = $applicants->get();
-
+            if($request->filled('subtable'))
                 return view('showform_datatable', compact('applicants'));
-            }
-
-            $applicants = $applicants->get();
 
             return view('showform', compact('applicants'));
         }
@@ -63,5 +37,31 @@ class SearchController extends Controller
             Log::error($e->getFile()." ".$e->getLine());
             Log::error($e->getMessage());
         }
+    }
+
+    protected function filterData(Request $request, $applicants)
+    {
+        if($request->commus)
+            $applicants->where('community', $request->commus);
+        if($request->financial_year)
+            $applicants->where('financial_year', $request->financial_year);
+        if($request->dist)
+            $applicants->whereHas('address', function ($query) use($request){
+                $query->where('district2', $request->dist);
+            });
+        if($request->subdist)
+            $applicants->whereHas('address', function ($query) use($request){
+                $query->where('upazilla2', $request->subdist);
+            });
+        if($request->edu)
+            $applicants->whereHas('qualification', function ($query) use($request){
+                $query->where('presentClass', $request->edu);
+            });
+
+        // filter for tabular format
+        if($request->quota)
+            $applicants->where('quota', $request->quota);
+
+        return $applicants;
     }
 }
