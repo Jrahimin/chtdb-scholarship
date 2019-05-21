@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Applicant;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -34,8 +35,10 @@ class SearchController extends Controller
             return view('showform', compact('applicants'));
         }
         catch (\Exception $e){
-            Log::error($e->getFile()." ".$e->getLine());
-            Log::error($e->getMessage());
+            Log::error($e->getFile()." ".$e->getLine()." ".$e->getMessage());
+
+            if($e instanceof ModelNotFoundException )
+                abort(404);
         }
     }
 

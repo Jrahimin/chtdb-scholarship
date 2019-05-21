@@ -149,8 +149,7 @@ class FormSubmitController extends Controller
             return view('submit-response', compact('success', 'applicant'));
         }
         catch (\Exception $e){
-            Log::error($e->getFile()." ".$e->getLine());
-            Log::error($e->getMessage());
+            Log::error($e->getFile()." ".$e->getLine()." ".$e->getMessage());
 
             $success = false;
             return view('submit-response', compact('success'));
