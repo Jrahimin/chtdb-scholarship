@@ -77,7 +77,7 @@ class FormSubmitController extends Controller
             Qualification::create([
                 'sscGroup' => $request->ssc_group,
                 'sscRoll' => $request->ssc_roll,
-                'sscGpa' => $request->ssc_gpa,
+                'sscGpa' => $request->ssc_p." (৫ এর মধ্যে)",
                 'sscYear' => $request->ssc_year,
                 'sscBoard' => $request->ssc_board,
                 'hscGroup' => $request->hsc_group,
@@ -150,6 +150,7 @@ class FormSubmitController extends Controller
         }
         catch (\Exception $e){
             Log::error($e->getFile()." ".$e->getLine()." ".$e->getMessage());
+            Log::critical("request: ".json_encode($request->all()));
 
             $success = false;
             return view('submit-response', compact('success'));

@@ -16,7 +16,7 @@ Route::get('/test',function (){
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('form');
 })->name('form');
 
 Auth::routes();

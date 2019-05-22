@@ -382,10 +382,8 @@ session_start();
 
                                     <td style="text-align:center;">
                                         <center>
-                                            <input type="text" class="ssc_p" id="ssc_p" placeholder="জিপিএ..." required="required" onKeyUp="sscp()"/>
-
+                                            <input type="text" name="ssc_p" class="ssc_p" id="ssc_p" placeholder="জিপিএ..." required="required"/>
                                         </center>
-
                                     </td>
                                     <td style="text-align:center;">
 
@@ -849,7 +847,7 @@ session_start();
 <script src="{{ asset('js/moment.min.js') }}"></script>
 <!--<script src="bootstrap-datetimepicker.min.js"></script>-->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/index_jQuery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/index_jQuery.js?v1.0') }}"></script>
 
 <script>
 
