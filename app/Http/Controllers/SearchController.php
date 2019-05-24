@@ -26,7 +26,7 @@ class SearchController extends Controller
 
             //filtering data
             $applicants = $this->filterData($request, $applicants);
-            $applicants = $applicants->get();
+            $applicants = $applicants->orderBy('point', 'Desc')->get();
 
             // if data in tabular format
             if($request->filled('subtable'))
