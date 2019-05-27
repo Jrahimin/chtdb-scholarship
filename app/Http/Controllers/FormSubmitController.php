@@ -17,6 +17,10 @@ class FormSubmitController extends Controller
     public function submit(Request $request)
     {
         try{
+            $isDuplicate = $this->checkIfDuplicateApplicant($request);
+            if($isDuplicate)
+                return view('submit-response', compact('isDuplicate'));
+
             $currentYearRange = (date('Y') - 1)."-".date('Y');
             $financialYear =(string)$this->convertChar($currentYearRange, true);
             $gpaPoint = (float)$this->convertChar($request->cr_point);
@@ -179,5 +183,18 @@ class FormSubmitController extends Controller
             return str_replace($engChar, $banglaChar, $char);
         else
             return str_replace($banglaChar, $engChar, $char);
+    }
+
+    protected function checkIfDuplicateApplicant(Request $request)
+    {
+        $duplicatetBankAcc = BankInfo::where('bankAcc', $request->b_ac)->where('bankName', $request->b_dist)->first();
+        if($duplicatetBankAcc)
+            return $duplicatetBankAcc->applicant_id;
+
+        $duplicateQualification = Qualification::where('sscRoll', $request->ssc_roll)->where('sscYear', $request->ssc_year)->where('sscBoard', $request->ssc_board)->first();
+        if($duplicateQualification)
+            return $duplicateQualification->applicant_id;
+
+        return false;
     }
 }

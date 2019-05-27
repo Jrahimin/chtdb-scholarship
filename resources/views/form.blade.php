@@ -761,12 +761,11 @@ session_start();
                                 </tbody>
                             </table>
                             <div class="subbut" id="dekhao">
-                                <input name="submit" id="gapply" type="submit" value="আবেদনের সময় শেষ হয়েছে" class="btnsub" onClick="check(event)" style="font-weight:bold;border-radius:8px;box-shadow:2px 2px 3px 4px rgb(83,157,2)"/>
+                                <input name="submit" id="gapply" type="submit" value="আবেদন করুন" class="btnsub" onClick="check(event)" style="font-weight:bold;border-radius:8px;box-shadow:2px 2px 3px 4px rgb(83,157,2)"/>
                             </div>
                         </div>
                     </td>
                 </tr>
-
 </form>
 </div>
 
