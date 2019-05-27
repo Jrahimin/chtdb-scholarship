@@ -85,7 +85,7 @@ session_start();
                                 </tr>
                                 <tr>
                                     <td valign="top"><strong>*জন্ম  তারিখ:</strong></td>
-                                    <td><input name="dob" required="required" class="dob" type="text" id="dob"/>
+                                    <td><input name="dob" required="required" class="dob" type="text" id="dob" placeholder=" Y-m-d"/>
                                     </td>
                                     <td style="border:none;"></td>
                                     <td style="border:none;"></td>
@@ -845,9 +845,9 @@ session_start();
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.js') }}"></script>
 <script src="{{ asset('js/moment.min.js') }}"></script>
-<!--<script src="bootstrap-datetimepicker.min.js"></script>-->
+<script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/index_jQuery.js?v1.0') }}"></script>
+<script type="text/javascript" src="{{ asset('js/index_jQuery.js?v1.1') }}"></script>
 
 <script>
 

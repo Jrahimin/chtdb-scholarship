@@ -94,6 +94,11 @@ function setvalue(){
 
 		var pointValue= document.getElementById("cr_p").value;
 
+		if ($('input[name=relation_with_applicant]:checked').length === 0) {
+		    alert("অনুগ্রহ করে হিসাবকারীর সাথে সম্পর্ক প্রদান করুন");
+		    event.preventDefault();
+		}
+
 		if(pointValue==="" && carlmarks==="")
 		{
 			alert("অনুগ্রহ করে সর্বশেষ উত্তীর্ণ শ্রেণি/ডিগ্রি অথবা সেমিষ্টার/বর্ষের জিপিএ/বিভাগ প্রদান করুন");event.preventDefault();
