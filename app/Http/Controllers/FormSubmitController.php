@@ -17,9 +17,10 @@ class FormSubmitController extends Controller
     public function submit(Request $request)
     {
         try{
+            $success = false;
             $isDuplicate = $this->checkIfDuplicateApplicant($request);
             if($isDuplicate)
-                return view('submit-response', compact('isDuplicate'));
+                return view('submit-response', compact('isDuplicate', 'success'));
 
             $currentYearRange = (date('Y') - 1)."-".date('Y');
             $financialYear =(string)$this->convertChar($currentYearRange, true);
@@ -150,14 +151,15 @@ class FormSubmitController extends Controller
             DB::commit();
 
             $success = true;
-            return view('submit-response', compact('success', 'applicant'));
+            return view('submit-response', compact('success', 'applicant', 'isDuplicate'));
         }
         catch (\Exception $e){
             Log::error($e->getFile()." ".$e->getLine()." ".$e->getMessage());
             Log::critical("request: ".json_encode($request->all()));
 
             $success = false;
-            return view('submit-response', compact('success'));
+            $isDuplicate = false;
+            return view('submit-response', compact('success', 'isDuplicate'));
         }
     }
 
@@ -188,12 +190,18 @@ class FormSubmitController extends Controller
     protected function checkIfDuplicateApplicant(Request $request)
     {
         $duplicatetBankAcc = BankInfo::where('bankAcc', $request->b_ac)->where('bankName', $request->b_dist)->first();
-        if($duplicatetBankAcc)
+        if($duplicatetBankAcc){
+            Log::debug("duplicate for applicant id: ".$duplicatetBankAcc->applicant_id);
+            Log::debug("request: ".json_encode($request));
             return $duplicatetBankAcc->applicant_id;
+        }
 
         $duplicateQualification = Qualification::where('sscRoll', $request->ssc_roll)->where('sscYear', $request->ssc_year)->where('sscBoard', $request->ssc_board)->first();
-        if($duplicateQualification)
+        if($duplicateQualification){
+            Log::debug("duplicate for applicant id: ".$duplicateQualification->applicant_id);
+            Log::debug("request: ".json_encode($request));
             return $duplicateQualification->applicant_id;
+        }
 
         return false;
     }
