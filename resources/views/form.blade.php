@@ -231,6 +231,7 @@ session_start();
                                         <input type="radio" class="relation_with_applicant" name="relation_with_applicant" value="মা" style="margin-top:5px;"> মা
                                         <input type="radio" class="relation_with_applicant" name="relation_with_applicant" value="বাবা" style="margin-top:5px;"> বাবা
                                         <input type="radio" class="relation_with_applicant" name="relation_with_applicant" value="নিজস্ব" style="margin-top:5px;"> নিজস্ব
+                                        <input type="radio" class="relation_with_applicant" name="relation_with_applicant" value="অন্য" style="margin-top:5px;"> অন্য
                                     </td>
                                 </tr>
                                 </tbody>
