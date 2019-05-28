@@ -191,15 +191,15 @@ class FormSubmitController extends Controller
     {
         $duplicatetBankAcc = BankInfo::where('bankAcc', $request->b_ac)->where('bankName', $request->b_dist)->first();
         if($duplicatetBankAcc){
-            Log::debug("duplicate for applicant id: ".$duplicatetBankAcc->applicant_id);
-            Log::debug("request: ".json_encode($request));
+            Log::debug("bank info duplicate for applicant id: ".$duplicatetBankAcc->applicant_id);
+            Log::debug("request: ".json_encode($request->all()));
             return $duplicatetBankAcc->applicant_id;
         }
 
         $duplicateQualification = Qualification::where('sscRoll', $request->ssc_roll)->where('sscYear', $request->ssc_year)->where('sscBoard', $request->ssc_board)->first();
         if($duplicateQualification){
-            Log::debug("duplicate for applicant id: ".$duplicateQualification->applicant_id);
-            Log::debug("request: ".json_encode($request));
+            Log::debug("qualification duplicate for applicant id: ".$duplicateQualification->applicant_id);
+            Log::debug("request: ".json_encode($request->all()));
             return $duplicateQualification->applicant_id;
         }
 
