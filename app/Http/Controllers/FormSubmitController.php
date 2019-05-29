@@ -189,7 +189,11 @@ class FormSubmitController extends Controller
 
     protected function checkIfDuplicateApplicant(Request $request)
     {
-        $duplicateQualification = Qualification::where('sscRoll', $request->ssc_roll)->where('sscYear', $request->ssc_year)->where('sscBoard', $request->ssc_board)->first();
+        $duplicateQualification = Qualification::where('sscRoll', $request->ssc_roll)->where('sscYear', $request->ssc_year)->where('sscBoard', $request->ssc_board)
+            ->whereHas('applicant', function ($query) use ($request){
+                $query->where('financial_year', $request->financial_year);
+            })->first();
+
         if($duplicateQualification){
             Log::debug("qualification duplicate for applicant id: ".$duplicateQualification->applicant_id);
             Log::debug("request: ".json_encode($request->all()));
