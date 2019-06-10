@@ -94,12 +94,19 @@ function setvalue(){
 
 		var pointValue= document.getElementById("cr_p").value;
 
+		let yearRegEx = /^\d{4}-\d{2}-\d{2}$/;
+		let dob = $('#dob').val();
+		if(!dob.match(yearRegEx)){
+		    alert("জন্মতারিখ সঠিক ফরম্যাটে (YYYY-mm-dd) প্রদান করুন। যেমনঃ 1971-12-16");
+		    event.preventDefault();
+		}
+
 		if ($('input[name=relation_with_applicant]:checked').length === 0) {
 		    alert("অনুগ্রহ করে হিসাবকারীর সাথে সম্পর্ক প্রদান করুন");
 		    event.preventDefault();
 		}
 
-		if(pointValue==="" && carlmarks==="")
+            if(pointValue==="" && carlmarks==="")
 		{
 			alert("অনুগ্রহ করে সর্বশেষ উত্তীর্ণ শ্রেণি/ডিগ্রি অথবা সেমিষ্টার/বর্ষের জিপিএ/বিভাগ প্রদান করুন");event.preventDefault();
 		}

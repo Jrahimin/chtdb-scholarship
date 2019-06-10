@@ -18,16 +18,17 @@ class FormSubmitController extends Controller
     {
         try{
             $success = false;
-            $isDuplicate = $this->checkIfDuplicateApplicant($request);
-            if($isDuplicate)
-                return view('submit-response', compact('isDuplicate', 'success'));
-
             $currentYearRange = (date('Y') - 1)."-".date('Y');
             $financialYear =(string)$this->convertChar($currentYearRange, true);
             $gpaPoint = (float)$this->convertChar($request->cr_point);
             $mark = (float)$this->convertChar($request->cr_marks);
             $gpaRangeFloat = (float)$this->convertChar($request->gpa_range);
             $gpaOrMark = '';
+
+            $isDuplicate = $this->checkIfDuplicateApplicant($request, $financialYear);
+            if($isDuplicate)
+                return view('submit-response', compact('isDuplicate', 'success'));
+
             if($gpaPoint>9 && $gpaPoint<100)
             {
                 $gpaPoint=$gpaPoint/10;
@@ -59,7 +60,7 @@ class FormSubmitController extends Controller
             $filePathQuota = $request->hasFile('quota_pic') ? $this->saveFile($request->file('quota_pic'),"quota_image") : null;
 
             DB::beginTransaction();
-            
+
             $applicant = Applicant::create([
                 'applicantname' => $request->app_eng,
                 'applicantnameBang' => $request->app_bang,
@@ -187,11 +188,11 @@ class FormSubmitController extends Controller
             return str_replace($banglaChar, $engChar, $char);
     }
 
-    protected function checkIfDuplicateApplicant(Request $request)
+    protected function checkIfDuplicateApplicant(Request $request, $financialYear)
     {
         $duplicateQualification = Qualification::where('sscRoll', $request->ssc_roll)->where('sscYear', $request->ssc_year)->where('sscBoard', $request->ssc_board)
-            ->whereHas('applicant', function ($query) use ($request){
-                $query->where('financial_year', $request->financial_year);
+            ->whereHas('applicant', function ($query) use ($financialYear){
+                $query->where('financial_year', $financialYear);
             })->first();
 
         if($duplicateQualification){

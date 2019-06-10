@@ -847,7 +847,7 @@ session_start();
 <script src="{{ asset('js/moment.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/index_jQuery.js?v1.1') }}"></script>
+<script type="text/javascript" src="{{ asset('js/index_jQuery.js?v1.2') }}"></script>
 
 <script>
 
