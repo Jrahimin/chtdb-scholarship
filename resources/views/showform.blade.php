@@ -92,6 +92,10 @@ session_start();
 	
 </div>
 
+<div class="info myback">
+    <p style="text-align: right; color: palegoldenrod; font-size: 20px">আবেদনকারীঃ {{ $count }} জন</p>
+</div>
+
 <?php
 	foreach ($applicants as $applicant){
 		$applicant_id = $applicant->id;
@@ -194,8 +198,7 @@ session_start();
 <div class="init">
 <div class="detail" style="text-align: center; width: 100%;">
 <div class="info myback">
-    <p style="text-align: center; display: inline-block;">আবেদনকারীর তথ্য</p>
-    <p style="float: right; color: palegoldenrod; font-size: 20px">আবেদনকারীঃ {{ $count }} জন</p>
+    <p style="text-align: center;">আবেদনকারীর তথ্য</p>
 </div>
 </div>
 <div class="detail">
