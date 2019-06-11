@@ -75,9 +75,10 @@ session_start();
 <hr/><hr/>
 <div id="fordoc1">
     <div class="heading">
-        <p class="info myback">
-            আবেদনকারীদের তথ্য
-        </p>
+        <div class="info myback">
+            <p style="text-align: center; display: inline-block;">আবেদনকারীর তথ্য</p>
+            <p style="float: right; color: palegoldenrod; font-size: 20px">আবেদনকারীঃ {{ $count }} জন</p>
+        </div>
     </div>
     <hr/><hr/>
 
@@ -85,7 +86,7 @@ session_start();
 <table class="table" id="info">
     <thead>
         <tr>
-            <th>ক্রমিক ননগ</th>
+            <th>ক্রমিক নং</th>
             <th>আইডি নং</th>
             <th>ছাত্র/ছাত্রীর নাম <br/> পিতার নাম <br/> মাতার নাম</th>
             <th>স্থায়ী ঠিকানা- <br/> বাড়ির নং/রোড নং <br/> গ্রাম/ওয়ার্ড <br/> উপজেলা <br/> জেলা</th>

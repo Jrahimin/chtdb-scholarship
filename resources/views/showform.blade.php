@@ -192,8 +192,11 @@ session_start();
 <div class="wrapper">
 			
 <div class="init">
-<div class="detail">
-<p class="info myback" style="text-align:center;">আবেদনকারীর তথ্য</p>
+<div class="detail" style="text-align: center; width: 100%;">
+<div class="info myback">
+    <p style="text-align: center; display: inline-block;">আবেদনকারীর তথ্য</p>
+    <p style="float: right; color: palegoldenrod; font-size: 20px">আবেদনকারীঃ {{ $count }} জন</p>
+</div>
 </div>
 <div class="detail">
 <p class="info personal">ব্যক্তিগত তথ্য</p>

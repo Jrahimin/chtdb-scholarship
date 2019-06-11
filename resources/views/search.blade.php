@@ -68,7 +68,7 @@
     <br/><br/><br/><br/><br/>
 
     <div class="form-group">
-
+        <h3 style="color: rgb(34,83,78)">বর্তমান অর্থবছরে আবেদনকারীঃ {{ $totalApplicantThisYear }} জন</h3>
         <table width="100%">
             <tr>
 
