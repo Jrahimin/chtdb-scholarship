@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <html>
 <head><title>আবেদন ফরম</title>
     <meta charset="UTF-8">
@@ -512,7 +508,7 @@ session_start();
                                             <option value="বর্ষ">বর্ষ</option>
                                         </select>
 
-                                        <select name="cr_semester" style="font-size:1.2em;margin-left:20px;padding:5px;text-align:center;" id="crsemester">
+                                        <select name="cr_semester" style="font-size:1.2em;margin-left:20px;padding:5px;text-align:center;" id="crsemester" required="required">
                                             <option value="">- নির্বাচন করুন -</option>
                                             <option value="১ম">১ম</option>
                                             <option value="২য়">২য়</option>
