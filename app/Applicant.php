@@ -10,7 +10,7 @@ class Applicant extends Model
     protected $guarded = ['id'];
     public $timestamps = false;
     protected $fillable = ['applicantname', 'applicantnameBang', 'gender', 'quota', 'dob', 'appMobile', 'email', 'nid', 'bid',
-        'community', 'personImageID', 'signImageID', 'quotaImageId', 'quota_relation', 'point', 'financial_year'];
+        'community', 'personImageID', 'signImageID', 'quotaImageId', 'quota_relation', 'point', 'financial_year', 'created_at'];
 
     public function address(){
         return $this->hasOne(Address::class);

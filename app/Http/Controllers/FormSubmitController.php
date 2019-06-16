@@ -77,7 +77,8 @@ class FormSubmitController extends Controller
                 'quotaImageId' => $filePathQuota,
                 'quota_relation' => $request->quota_relation ?? '',
                 'point' => $point,
-                'financial_year' => $financialYear
+                'financial_year' => $financialYear,
+                'created_at' => date('Y-m-d H:i:s')
             ]);
 
             Qualification::create([
