@@ -390,7 +390,7 @@
             </p>
 
             <p class="oye">
-                <select class="opt" onChange="comcheck2(this.value)" name="comm" id="comm2" style="font-size:1em;padding:5px;text-align:center;">
+                <select class="opt" onChange="comcheck2(this.value)" name="commus" id="comm2" style="font-size:1em;padding:5px;text-align:center;">
                     <option value=""></option>
                     <option value="চাকমা">চাকমা</option>
                     <option value="মারমা">মারমা</option>
