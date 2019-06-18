@@ -23,32 +23,25 @@ class FormSubmitController extends Controller
             $gpaPoint = (float)$this->convertChar($request->cr_point);
             $mark = (float)$this->convertChar($request->cr_marks);
             $gpaRangeFloat = (float)$this->convertChar($request->gpa_range);
-            $gpaOrMark = '';
+            $gpaOrMark = $request->cr_point ? $request->cr_point : $request->cr_marks;
 
             $isDuplicate = $this->checkIfDuplicateApplicant($request, $financialYear);
             if($isDuplicate)
                 return view('submit-response', compact('isDuplicate', 'success'));
 
             if($gpaPoint>9 && $gpaPoint<100)
-            {
                 $gpaPoint=$gpaPoint/10;
-            }
-
             if($gpaPoint>99)
-            {
                 $gpaPoint=$gpaPoint/100;
-            }
 
             if($request->definecr === 'জিপিএ')
             {
-                $gpaOrMark=$request->cr_point;
                 $gpaPoint=$gpaPoint*(5/$gpaRangeFloat);
                 $point=$gpaPoint;
             }
             else if($request->definecr === 'বিভাগ')
             {
                 $point=$mark;
-                $gpaOrMark=$request->cr_marks;
             }
 
             $filePathPersonal = $request->hasFile('app_pic') ? $this->saveFile($request->file('app_pic'),"Personal_image") : null;
