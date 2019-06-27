@@ -7,7 +7,7 @@
         *{margin:0;padding:0;font-family:verdana;}
         a{text-decoration:none;}
         body{padding:3px;} .menubar{margin:0;width:100%;height:auto;background:{{public_path('images/back.jpg')}} no-repeat;background-size:cover; border:none;}.mymenu{width:98%;
-                                                                                                                                               background:{{public_path('images/back.jpg')}} no-repeat;background-size:cover;border:none;}
+                                                                                                                                                                    background:{{public_path('images/back.jpg')}} no-repeat;background-size:cover;border:none;}
         .menuleft{width:70%;border:none;} .menuright{width:32%;border:none;} .plink{color:rgb(237,255,200);text-decoration:none;padding:18px;font-weight:bold;border:none;}
         .setright{text-align:right;border:none;}
         .bdesh{ color: white;padding: 10px 12px; text-align: center; text-decoration: none;font-size:1.2em;border-radius:5px;border:1px solid rgb(3,33,78);font-size:1.2em;padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold;
@@ -61,19 +61,10 @@
     <div class="message">
 
         <br/><br/><br/><br/><br/><br/>
-        @if($isDuplicate)
-            <p class="congrats">
-                দুঃখিত! আপনি পূর্বে সফলভাবে আবেদন করেছেন। আবেদন পুনরায় গ্রহণ করা হবে না। আপনার পূর্বের আবেদনের আইডি নং <b>{{ $isDuplicate }}</b>। আইডি নম্বরটি সংগ্রহে রাখুন।
-            </p>
-        @elseif($success)
-                <p class="congrats">
-                    অভিনন্দন! আপনার আবেদন প্রক্রিয়া সম্পন্ন হয়েছে। আপনার আইডি নং  <b>{{ $applicant->id }}</b>। আইডি নম্বরটি সংগ্রহে রাখুন।
-                </p>
-        @else
-                <p class="congrats">
-                    দুঃখিত! আপনার আবেদন প্রক্রিয়া সফল হয়নি। পুনরায় সতর্কতার সাথে আবেদন ফর্ম পূরণ করুন।
-                </p>
-        @endif
+
+        <p class="congrats">
+            আবেদনের সময় শেষ হয়েছে।
+        </p>
 
         <br/><br/><br/><br/><br/><br/>
 

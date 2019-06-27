@@ -16,7 +16,11 @@ Route::get('/test',function (){
 });
 
 Route::get('/', function () {
-    return view('form');
+
+    return view('submission_expired'); // after time expiration.
+
+    return view('form'); // will be activated when the right time appears
+
 })->name('form');
 
 Auth::routes();
