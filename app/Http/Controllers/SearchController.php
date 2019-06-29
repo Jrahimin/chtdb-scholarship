@@ -21,6 +21,7 @@ class SearchController extends Controller
     {
         try{
             ini_set('memory_limit', '512M');
+            ini_set('max_execution_time', 300);
 
             $applicants = Applicant::with('address', 'bankInfo', 'family', 'qualification');
             if($request->id){
@@ -55,11 +56,11 @@ class SearchController extends Controller
             $applicants->where('financial_year', $request->financial_year);
         if($request->dist)
             $applicants->whereHas('address', function ($query) use($request){
-                $query->where('district2', $request->dist);
+                $query->where('district', $request->dist);
             });
         if($request->subdist)
             $applicants->whereHas('address', function ($query) use($request){
-                $query->where('upazilla2', $request->subdist);
+                $query->where('upazilla', $request->subdist);
             });
         if($request->edu)
             $applicants->whereHas('qualification', function ($query) use($request){
