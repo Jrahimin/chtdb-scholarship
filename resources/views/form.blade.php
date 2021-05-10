@@ -770,7 +770,7 @@
 </table>
 
 <div id=footer>
-    <a href="http://banglasofttech.com"><h3 id="footerLine">© Developed by BanglaSoftTech</h3></a>
+    <a href="http://banglasofttech.net"><h3 id="footerLine">© Developed by BanglaSoftTech</h3></a>
 </div>
 
 

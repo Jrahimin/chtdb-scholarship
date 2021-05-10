@@ -67,6 +67,9 @@ class SearchController extends Controller
                 $query->where('presentClass', $request->edu);
             });
 
+        if($request->gender)
+            $applicants->where('gender', $request->gender);
+
         // filter for tabular format
         if($request->quota)
             $applicants->where('quota', $request->quota);
