@@ -130,6 +130,8 @@ class FormSubmitController extends Controller
                 'upazilla2' => $request->pr_subdist,
                 'district' => $request->pa_dist,
                 'district2' => $request->pr_dist,
+                'union' => $request->pa_union,
+                'union2' => $request->pr_union,
                 'residentImageId' => $filePathResident,
                 'applicant_id' => $applicant->id
             ]);

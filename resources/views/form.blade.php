@@ -256,6 +256,11 @@
                                     <td><input name="pr_post" type="text" id="pr_post" onKeyUp="pst()" required="required"/></td>
                                 </tr>
                                 <tr>
+                                    <td valign="top"><strong>ইউনিয়ন/পৌরসভা</strong></td>
+                                    <td><input name="pa_union" type="text" id="pa_union" required="required" /></td>
+                                    <td><input name="pr_union" type="text" id="pr_union" onKeyUp="union()" required="required"/></td>
+                                </tr>
+                                <tr>
                                     <td valign="top"><strong>জেলা</strong></td>
                                     <td>
                                         <select class="opt pa_dist" name="pa_dist" onChange="changekar(this.value)" id="sday"  required="required">
@@ -843,7 +848,7 @@
 <script src="{{ asset('js/moment.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/index_jQuery.js?v1.2') }}"></script>
+<script type="text/javascript" src="{{ asset('js/index_jQuery.js?v1.3') }}"></script>
 
 <script>
 

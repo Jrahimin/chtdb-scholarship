@@ -31,7 +31,7 @@ class SearchController extends Controller
 
             //filtering data
             $applicants = $this->filterData($request, $applicants);
-            $applicants = $applicants->orderBy('point', 'Desc')->get();
+            $applicants = $applicants->orderBy('point', 'Desc')->orderBy('dob', 'ASC')->get();
             $count = $applicants->count();
 
             // if data in tabular format
