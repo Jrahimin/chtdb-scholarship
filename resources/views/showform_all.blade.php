@@ -422,6 +422,7 @@ $community = $applicant->community;
 $app_pic = $applicant->personImageID;
 $app_sign = $applicant->signImageID;
 $quota_pic = $applicant->quotaImageId;
+$quota_father_nid_pic = $applicant->quota_father_nid_image_id;
 
 //family
 $fathers_name = $applicant->family->fathersNname;
@@ -486,6 +487,7 @@ $master_group = $applicant->qualification->postgradGroup;
 $cr_degree = $applicant->qualification->presentClass;  //pesent class/degree name
 $cr_what = $applicant->qualification->prYear;
 $last_degree = $applicant->qualification->lastDegree;
+$last_degree_year = $applicant->qualification->lastDegreeYear;
 $last_what = $applicant->qualification->yearSemester;
 $last_semester = $applicant->qualification->lastSemester;
 $cr_subject = $applicant->qualification->subject;
@@ -1372,6 +1374,21 @@ $cr_address2 = $applicant->qualification->instituteAddress;  //present class add
 
                         <td class="store">
                             <p class="headline">
+                                সর্বশেষ উত্তীর্ণ শ্রেণী/ডিগ্রির বর্ষ
+                            </p>
+                        </td>
+
+                        <td class="store1">
+                            <p class="inf gd">
+                                <?php echo $last_degree_year; ?>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr class="infowale">
+
+                        <td class="store">
+                            <p class="headline">
                                 সর্বশেষ সেমিস্টার/বর্ষের জিপিএ/নম্বর
                             </p>
                         </td>
@@ -1438,6 +1455,21 @@ $cr_address2 = $applicant->qualification->instituteAddress;  //present class add
                 <hr color="white"/>
                 <hr class="line"/>
                 <img class="papers" src="{{ url($quota_pic) }}"/>
+            </div>
+            @endif
+
+            <?php
+            $extension = substr($quota_father_nid_pic, -3);
+            ?>
+            @if($extension=="jpg" || $extension=="png"){
+
+            <div class="account" id="forquota">
+                <p class="info personal">
+                    মুক্তিযোদ্ধা কোটার স্বপক্ষে পিতার জাতীয় পরিচয়পত্র
+                </p>
+                <hr color="white"/>
+                <hr class="line"/>
+                <img class="papers" src="{{ url($quota_father_nid_pic) }}"/>
             </div>
             @endif
 

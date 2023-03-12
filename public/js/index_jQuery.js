@@ -173,6 +173,7 @@ function check(event) {
     var pe = document.getElementById('inst_attachment');
     var pf = document.getElementById('com_attachment');
     var qf = document.getElementById('qt_pic');
+    var quotaFatherNidPic = document.getElementById('father_nid_pic');
     var x = document.getElementById("hello").checked;
 
     var carlmarks = document.getElementById("carlmarks").value;
@@ -199,8 +200,38 @@ function check(event) {
         event.preventDefault();
     }
 
-    if (pointValue > 5 && document.getElementById("definecr").value === "জিপিএ") {
-        alert("সর্বশেষ উত্তীর্ণ শ্রেণি/ডিগ্রি অথবা সেমিষ্টার/বর্ষের জিপিএ ৫ এর অধিক গ্রহণযোগ্য নয়");
+    let banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+    let engDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    let pointValueEngDigit = '';
+    let isBanglaDigit = false;
+
+    for (let i = 0; i < pointValue.length; i++) {
+        let pointValueIndexLetter = pointValue.charAt(i);
+        if(pointValueIndexLetter === "."){
+            pointValueEngDigit += ".";
+        }
+
+        if(banglaDigits.includes(pointValueIndexLetter)) {
+            isBanglaDigit = true;
+            pointValueEngDigit += engDigits[banglaDigits.indexOf(pointValueIndexLetter)];
+        }
+    }
+
+    if(!isBanglaDigit) {
+        pointValueEngDigit = pointValue;
+    }
+
+    let gpaNotValid = false;
+    if (pointValueEngDigit > 5 && $("#definecr").val() === "জিপিএ") {
+        gpaNotValid = true;
+    } else if ($("#ssc_p").val() > 5 || $("#hsc_p").val() > 5) {
+        gpaNotValid = true;
+    } else if ($("#definegrad").val() === "জিপিএ" && $("#grad_p").val() > 5) {
+        gpaNotValid = true;
+    }
+
+    if (gpaNotValid) {
+        alert("জিপিএ ৫ এর অধিক গ্রহণযোগ্য নয়");
         event.preventDefault();
     }
 
@@ -253,9 +284,16 @@ function check(event) {
     }
 
     if (qf.files.length > 0) {
-        for (var i = 0; i <= qf.files.length - 1; i++) {
+        for (let i = 0; i <= qf.files.length - 1; i++) {
             var qasize = qf.files.item(i).size;
             var g = Math.round((qasize / 1024));
+        }
+    }
+
+    if (quotaFatherNidPic.files.length > 0) {
+        for (let i = 0; i <= quotaFatherNidPic.files.length - 1; i++) {
+            let qasize = quotaFatherNidPic.files.item(i).size;
+            var h = Math.round((qasize / 1024));
         }
     }
 
@@ -279,6 +317,8 @@ function check(event) {
     var height41 = document.getElementById("height4").innerHTML;
     var qwidth = document.getElementById("qwidth").innerHTML;
     var qheight = document.getElementById("qheight").innerHTML;
+    var qwidth2 = document.getElementById("qwidth2").innerHTML;
+    var qheight2 = document.getElementById("qheight2").innerHTML;
 
     var k1 = document.getElementById("p1").innerHTML;
     var k2 = document.getElementById("p2").innerHTML;
@@ -287,6 +327,7 @@ function check(event) {
     var k5 = document.getElementById("p5").innerHTML;
     var k6 = document.getElementById("p6").innerHTML;
     var q6 = document.getElementById("q6").innerHTML;
+    var q7 = document.getElementById("q7").innerHTML;
 
     var bang1 = document.getElementById("app_bang").value;
     var bang3 = document.getElementById("f_occu").value;
@@ -294,6 +335,7 @@ function check(event) {
     var bang5 = document.getElementById("m_occu").value;
     var bang6 = document.getElementById("g_name").value;
     var bang7 = document.getElementById("g_relation").value;
+    var bang8 = document.getElementById("fathers_name").value;
 
     var eng1 = document.getElementById("app_eng").value;
     var eng2 = document.getElementById("app_email").value;
@@ -306,63 +348,43 @@ function check(event) {
     if (a > 100 || b > 100) {
         alert(statement);
         event.preventDefault();
-    } else if (c > 300 || d > 300 || e > 300 || f > 300 || g > 300) {
+    } else if (c > 300 || d > 300 || e > 300 || f > 300 || g > 300 || h > 300) {
         alert(statement2);
         event.preventDefault();
-    } else if (k1) {
-        if (pwidth1 != 300 || pheight1 != 300) {
-            alert("আবেদনকারীর ছবির আকার ৩০০x৩০০ হতে হবে");
-            event.preventDefault();
-        }
-    } else if (k2) {
-        if (swidth1 != 300 || sheight1 != 80) {
-            alert("আবেদনকারীর স্বাক্ষরের ছবির আকার ৩০০X৮০ হতে হবে");
-            event.preventDefault();
-        }
-    } else if (k3) {
-        if (width11 != 1000 || height11 != 750) {
-            alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
-            event.preventDefault();
-        }
-    } else if (k4) {
-        if (width21 != 1000 || height21 != 750) {
-            alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
-            event.preventDefault();
-        }
-    } else if (k5) {
-        if (width31 != 1000 || height31 != 750) {
-            alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
-            event.preventDefault();
-        }
-    } else if (k6) {
-        if (width41 != 1000 || height41 != 750) {
-            alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
-            event.preventDefault();
-        }
-    } else if (q6) {
-        if (qwidth != 1000 || qheight != 750) {
-            alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
-            event.preventDefault();
-        }
+    } else if (k1 && (pwidth1 != 300 || pheight1 != 300)) {
+        alert("আবেদনকারীর ছবির আকার ৩০০x৩০০ হতে হবে");
+        event.preventDefault();
+    } else if (k2 && (swidth1 != 300 || sheight1 != 80)) {
+        alert("আবেদনকারীর স্বাক্ষরের ছবির আকার ৩০০X৮০ হতে হবে");
+        event.preventDefault();
+    } else if (k3 && (width11 != 1000 || height11 != 750)) {
+        alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
+        event.preventDefault();
+    } else if (k4 && (width21 != 1000 || height21 != 750)) {
+        alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
+        event.preventDefault();
+    } else if (k5 && (width31 != 1000 || height31 != 750)) {
+        alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
+        event.preventDefault();
+    } else if (k6 && (width41 != 1000 || height41 != 750)) {
+        alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
+        event.preventDefault();
+    } else if (q6 && (qwidth != 1000 || qheight != 750)) {
+        alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
+        event.preventDefault();
+    } else if (q7 && (qwidth2 != 1000 || qheight2 != 750)) {
+        alert("দলিলসমূহের ছবির আকার ১০০০x৭৫০ হতে হবে");
+        event.preventDefault();
     } else if (bank_acc_len > 16 || bank_acc_len < 13) {
         alert('দয়া করে ব্যাংক একাউন্ট নাম্বার চেক করুন। ১৩ থেকে ১৬ ডিজিটের ব্যাংক একাউন্ট নম্বর দিন');
         event.preventDefault();
     } else if (s != 11 || t != 11 || u != 11) {
-
-        {
-            alert('দয়া করে মোবাইল নম্বরগুলো চেক করুন। ১১ ডিজিটের মোবাইল নম্বর দিন');
-            event.preventDefault();
-        }
-    } else if (bang1 != 0 || bang3 != 0 || bang4 != 0 || bang5 != 0 || bang6 != 0 || bang7 != 0 || eng1 != 0 || eng2 != 0) {
-        charcheck(bang1);
-        charcheck(bang3);
-        charcheck(bang4);
-        charcheck(bang5);
-        charcheck(bang6);
-        charcheck(bang7);
-
-        charcheck2(eng1);
-        charcheck2(eng2);
+        alert('দয়া করে মোবাইল নম্বরগুলো চেক করুন। ১১ ডিজিটের মোবাইল নম্বর দিন');
+        event.preventDefault();
+    } else if ((bang1 != 0 || bang3 != 0 || bang4 != 0 || bang5 != 0 || bang6 != 0 || bang7 != 0 || bang8 != 0 || eng1 != 0 || eng2 != 0)
+        && (!charcheck(bang1) || !charcheck(bang3) || !charcheck(bang4) || !charcheck(bang5) || !charcheck(bang6) ||
+            !charcheck(bang7) || !charcheck(bang8) || !charcheck2(eng1) || !charcheck2(eng2))) {
+        event.preventDefault();
     } else if (!x) {
         alert('দয়া করে চুক্তির শর্তে টিক চিহ্ন দিন');
         event.preventDefault();
@@ -375,7 +397,6 @@ function check(event) {
             event.preventDefault();
         }
     }
-
 }
 
 function comcheck(ak) {
@@ -513,6 +534,28 @@ function readURL6(input) {
     }
 }
 
+function readURL7(input) {
+
+    if (input.files) {
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var img7 = new Image;
+
+            img7.onload = function () {
+
+                document.getElementById("qwidth2").innerHTML = img7.width;
+                document.getElementById("qheight2").innerHTML = img7.height;
+                document.getElementById("q7").innerHTML = "1";
+
+            };
+
+            img7.src = reader.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 function readURLa(input) {
 
     if (input.files) {
@@ -622,25 +665,32 @@ function readURL4(input) {
 
 function charcheck(mychar) {
     var n1;
+    let isValidChar = true;
 
     for (var i = 0, n1 = mychar.length; i < n1; i++) {
         if (mychar.charCodeAt(i) <= 255) {
             alert("’আবেদনকারীর নাম (ইংরেজি)’ এবং ইমেইল ব্যতীত কোনো তথ্য ইংরেজিতে দেয়া যাবে না");
+            isValidChar = false;
             break;
         }
     }
+
+    return isValidChar;
 }
 
 function charcheck2(mychar2) {
-
     var n2;
+    let isValidChar = true;
 
     for (var i = 0, n2 = mychar2.length; i < n2; i++) {
         if (mychar2.charCodeAt(i) > 255) {
             alert("’আবেদনকারীর নাম (ইংরেজি)’ এবং ইমেইল ইংরেজিতে লিখতে হবে");
+            isValidChar = false;
             break;
         }
     }
+
+    return isValidChar;
 }
 
 function up(x) {
@@ -952,6 +1002,18 @@ function qtchange() {
             break;
     }
 }
+
+$("#quota_relation").on("change", function () {
+    const $nidTdElm = $("#freedomQuotaNidTd");
+
+    if ($(this).val() === "সন্তান") {
+        $("#father_nid_pic").prop('required', false)
+        $nidTdElm.hide();
+    } else {
+        $("#father_nid_pic").prop('required', true)
+        $nidTdElm.show();
+    }
+});
 
 
 function gradcheck(qq3) {

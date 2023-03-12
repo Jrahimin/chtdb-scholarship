@@ -18,7 +18,7 @@ Route::get('/test',function (){
 Route::get('/', function () {
 
     // after time expiration.
-    return view('submission_expired');
+    //return view('submission_expired');
 
     // will be activated when the right time appears
     return view('form');

@@ -514,6 +514,7 @@ $master_group = $applicant->qualification->postgradGroup;
 $cr_degree = $applicant->qualification->presentClass;  //pesent class/degree name
 $cr_what = $applicant->qualification->prYear;
 $last_degree = $applicant->qualification->lastDegree;
+$last_degree_year = $applicant->qualification->lastDegreeYear;
 $last_what = $applicant->qualification->yearSemester;
 $last_semester = $applicant->qualification->lastSemester;
 $cr_subject = $applicant->qualification->subject;
@@ -1388,6 +1389,21 @@ $cr_address2 = $applicant->qualification->instituteAddress;  //present class add
                                 </p>
                             </td>
 
+                        </tr>
+
+                        <tr class="infowale">
+
+                            <td class="store">
+                                <p class="headline">
+                                    সর্বশেষ উত্তীর্ণ শ্রেণী/ডিগ্রির বর্ষ
+                                </p>
+                            </td>
+
+                            <td class="store1">
+                                <p class="inf gd">
+                                    <?php echo $last_degree_year; ?>
+                                </p>
+                            </td>
                         </tr>
 
                         <tr class="infowale">
