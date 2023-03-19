@@ -207,17 +207,17 @@ function check(event) {
 
     for (let i = 0; i < pointValue.length; i++) {
         let pointValueIndexLetter = pointValue.charAt(i);
-        if(pointValueIndexLetter === "."){
+        if (pointValueIndexLetter === ".") {
             pointValueEngDigit += ".";
         }
 
-        if(banglaDigits.includes(pointValueIndexLetter)) {
+        if (banglaDigits.includes(pointValueIndexLetter)) {
             isBanglaDigit = true;
             pointValueEngDigit += engDigits[banglaDigits.indexOf(pointValueIndexLetter)];
         }
     }
 
-    if(!isBanglaDigit) {
+    if (!isBanglaDigit) {
         pointValueEngDigit = pointValue;
     }
 
@@ -340,10 +340,10 @@ function check(event) {
     var eng1 = document.getElementById("app_eng").value;
     var eng2 = document.getElementById("app_email").value;
 
-    var s = m.length;
-    var t = n.length;
-    var u = o.length;
-    var bank_acc_len = bank_ac_no.length;
+    var s = m.trim().length;
+    var t = n.trim().length;
+    var u = o.trim().length;
+    var bank_acc_len = bank_ac_no.trim().length;
 
     if (a > 100 || b > 100) {
         alert(statement);
@@ -664,11 +664,12 @@ function readURL4(input) {
 
 
 function charcheck(mychar) {
-    var n1;
+    mychar = mychar.trim();
     let isValidChar = true;
 
-    for (var i = 0, n1 = mychar.length; i < n1; i++) {
-        if (mychar.charCodeAt(i) <= 255) {
+    for (let i = 0; i < mychar.length; i++) {
+        const charCode = mychar.charCodeAt(i);
+        if ((charCode >= 48 && charCode <= 57) || (charCode >= 64 && charCode <= 255)) {
             alert("’আবেদনকারীর নাম (ইংরেজি)’ এবং ইমেইল ব্যতীত কোনো তথ্য ইংরেজিতে দেয়া যাবে না");
             isValidChar = false;
             break;
@@ -679,10 +680,9 @@ function charcheck(mychar) {
 }
 
 function charcheck2(mychar2) {
-    var n2;
     let isValidChar = true;
 
-    for (var i = 0, n2 = mychar2.length; i < n2; i++) {
+    for (let i = 0; i < mychar2.length; i++) {
         if (mychar2.charCodeAt(i) > 255) {
             alert("’আবেদনকারীর নাম (ইংরেজি)’ এবং ইমেইল ইংরেজিতে লিখতে হবে");
             isValidChar = false;
